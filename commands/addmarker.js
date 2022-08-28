@@ -10,7 +10,16 @@ module.exports = {
       option.setName("X").setDescription("X coordinate of the marker")
     )
     .addIntegerOption((option) =>
-      option.setName("X").setDescription("Z coordinate of the marker")
+      option.setName("Y").setDescription("Y coordinate of the marker")
+    )
+    .addIntegerOption((option) =>
+      option.setName("Z").setDescription("Z coordinate of the marker")
+    )
+    .addStringOption((option) =>
+      option.setName("dimension").setDescription("The dimension of the marker")
+    )
+    .addStringOption((option) =>
+      option.setName("name").setDescription("The name of the marker")
     ),
   async execute(interaction) {},
 };
