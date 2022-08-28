@@ -20,6 +20,7 @@
   "dependencies": {
     "@discordjs/rest": "^1.0.1",
     "discord.js": "^14.2.0",
-    "https": "^1.0.0"
+    "https": "^1.0.0",
+    "sequelize": "^6.21.4"
   }
 }
