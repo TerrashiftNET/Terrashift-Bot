@@ -1,4 +1,3 @@
-const { setGlobalValidationEnabled } = require("@sapphire/shapeshift");
 const { SlashCommandBuilder } = require("discord.js");
 const https = require("https");
 const { EmbedBuilder } = require("discord.js");

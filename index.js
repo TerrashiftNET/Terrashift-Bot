@@ -3,6 +3,7 @@ const path = require("node:path");
 const { Client, Collection, GatewayIntentBits } = require("discord.js");
 const { token } = require("./config.json");
 global.user = "";
+const { DB, sequelize } = require("./db/db-init-js");
 
 const client = new Client({ intents: [GatewayIntentBits.Guilds] });
 
@@ -20,6 +21,7 @@ for (const file of commandFiles) {
 
 client.once("ready", () => {
   console.log("Ready!");
+  DB.markers.sync();
 });
 
 client.on("interactionCreate", async (interaction) => {
