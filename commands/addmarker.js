@@ -2,6 +2,7 @@ const { SlashCommandBuilder } = require("discord.js");
 const https = require("https");
 const { EmbedBuilder } = require("discord.js");
 const { DB, sequelize } = require("../db/db-init-js");
+const { ptero_token, server_id } = require("../config.json");
 let data = "";
 
 module.exports = {
@@ -71,13 +72,12 @@ module.exports = {
 
     const options = {
       hostname: "admin.terrashift.net",
-      path: "/api/client/servers/6d0ed07d/command",
+      path: `/api/client/servers/${server_id}/command`,
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
-        Authorization:
-          "Bearer ptlc_4DP7GdrpAJlcugLnpH5LIWzGg8cyyeqS7mw1n58gp27",
+        Authorization: "Bearer ptero_token",
       },
     };
 

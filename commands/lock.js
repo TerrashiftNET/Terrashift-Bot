@@ -1,6 +1,7 @@
 const { SlashCommandBuilder } = require("discord.js");
 const https = require("https");
 const { EmbedBuilder } = require("discord.js");
+const { ptero_token, creative_server_id } = require("../config.json");
 
 module.exports = {
   data: new SlashCommandBuilder()

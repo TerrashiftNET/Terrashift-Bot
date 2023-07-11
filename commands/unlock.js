@@ -1,6 +1,7 @@
 const { SlashCommandBuilder } = require("discord.js");
 const https = require("https");
 const { EmbedBuilder } = require("discord.js");
+const { ptero_token, creative_server_id } = require("../config.json");
 
 module.exports = {
   data: new SlashCommandBuilder()
@@ -25,13 +26,12 @@ module.exports = {
 
     const options = {
       hostname: "admin.terrashift.net",
-      path: "/api/client/servers/513e3db7/schedules/3",
+      path: `/api/client/servers/${creative_server_id}/schedules/3`,
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
-        Authorization:
-          "Bearer ptlc_4DP7GdrpAJlcugLnpH5LIWzGg8cyyeqS7mw1n58gp27",
+        Authorization: `Bearer ${ptero_token}`,
       },
     };
 
