@@ -14,7 +14,8 @@ module.exports = {
         { name: "unlock", value: "Unlocks the Creative Server" },
         { name: "status", value: "Find out who locked the creative server" },
         { name: "lock", value: "Locks the Creative Server" }
-      );
+      )
+      .setColor("#FF91AF");
     await interaction.reply({ embeds: [embed] });
   },
 };

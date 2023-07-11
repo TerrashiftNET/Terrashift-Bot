@@ -77,7 +77,7 @@ module.exports = {
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
-        Authorization: "Bearer ptero_token",
+        Authorization: `Bearer ${ptero_token}`,
       },
     };
 
