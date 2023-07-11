@@ -94,6 +94,7 @@ module.exports = {
       })
       .on("error", (err) => {
         console.log("Error: ", err.message);
+        interaction.reply({ content: "Error: " + err.message });
       });
 
     req.write(data);
