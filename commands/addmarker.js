@@ -1,7 +1,6 @@
 const { SlashCommandBuilder } = require("discord.js");
 const https = require("https");
 const { EmbedBuilder } = require("discord.js");
-const { DB, sequelize } = require("../db/db-init-js");
 const { ptero_token, server_id } = require("../config.json");
 let data = "";
 
