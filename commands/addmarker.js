@@ -71,7 +71,7 @@ module.exports = {
 
     const options = {
       hostname: "admin.terrashift.net",
-      path: encodeURIComponent(`/api/client/servers` + server_id + `/command`),
+      path: `/api/client/servers` + server_id + `/command`,
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -88,15 +88,8 @@ module.exports = {
       });
 
       res.on("end", () => {
-        if (res.statusCode === 400) {
-          interaction.reply(
-            "There was an error adding the marker. Please try again."
-          );
-        } else {
-          interaction.reply({ embeds: [embed] });
-        }
-
-        // Handle response data
+        interaction.reply({ embeds: [embed] });
+        console.log("Body: ", JSON.parse(data));
       });
     });
 

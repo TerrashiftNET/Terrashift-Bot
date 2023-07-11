@@ -31,12 +31,11 @@ module.exports = {
     const options = {
       hostname: "admin.terrashift.net",
       path: `/api/client/servers/${creative_server_id}/schedules/3`,
-      path: encodeURIComponent(
+      path:
         "/api/client/servers/" +
-          creative_server_id +
-          "/schedules/" +
-          schedule_id
-      ),
+        creative_server_id +
+        "/schedules/" +
+        schedule_id,
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -30,18 +30,16 @@ module.exports = {
 
     const options = {
       hostname: "admin.terrashift.net",
-      path: encodeURIComponent(
+      path:
         "/api/client/servers/" +
-          creative_server_id +
-          "/schedules/" +
-          schedule_id
-      ),
+        creative_server_id +
+        "/schedules/" +
+        schedule_id,
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
-        Authorization:
-          "Bearer ptlc_4DP7GdrpAJlcugLnpH5LIWzGg8cyyeqS7mw1n58gp27",
+        Authorization: `Bearer ${ptero_token}`,
       },
     };
 
