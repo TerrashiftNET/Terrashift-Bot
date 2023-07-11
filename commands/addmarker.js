@@ -80,31 +80,31 @@ module.exports = {
       },
     };
 
-    const req = https
-      .request(options, (res) => {
-        let data = "";
+    const req = https.request(options, (res) => {
+      let data = "";
 
-        console.log("Status Code:", res.statusCode);
+      res.on("data", (chunk) => {
+        data += chunk;
+      });
+
+      res.on("end", () => {
         if (res.statusCode === 400) {
-          embed.setTitle("Error");
-          embed.setDescription(
+          interaction.reply(
             "There was an error adding the marker. Please try again."
           );
+        } else {
           interaction.reply({ embeds: [embed] });
         }
 
-        res.on("data", (chunk) => {
-          data += chunk;
-        });
-
-        res.on("end", () => {});
-      })
-      .on("error", (err) => {
-        console.log("Error: ", err.message);
+        // Handle response data
       });
+    });
+
+    req.on("error", (err) => {
+      console.error("Request error: ", err);
+    });
 
     req.write(data);
     req.end();
-    await interaction.reply({ embeds: [embed] });
   },
 };
