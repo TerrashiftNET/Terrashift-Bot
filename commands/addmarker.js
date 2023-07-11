@@ -85,6 +85,13 @@ module.exports = {
         let data = "";
 
         console.log("Status Code:", res.statusCode);
+        if (res.statusCode === 400) {
+          embed.setTitle("Error");
+          embed.setDescription(
+            "There was an error adding the marker. Please try again."
+          );
+          interaction.reply({ embeds: [embed] });
+        }
 
         res.on("data", (chunk) => {
           data += chunk;
@@ -98,7 +105,6 @@ module.exports = {
 
     req.write(data);
     req.end();
-
     await interaction.reply({ embeds: [embed] });
   },
 };
