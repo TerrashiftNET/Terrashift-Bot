@@ -71,7 +71,7 @@ module.exports = {
 
     const options = {
       hostname: "admin.terrashift.net",
-      path: `/api/client/servers/${server_id}/command`,
+      path: encodeURIComponent(`/api/client/servers` + server_id + `/command`),
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -94,7 +94,6 @@ module.exports = {
       })
       .on("error", (err) => {
         console.log("Error: ", err.message);
-        interaction.reply({ content: "Error: " + err.message });
       });
 
     req.write(data);
