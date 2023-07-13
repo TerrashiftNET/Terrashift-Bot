@@ -1,20 +1,30 @@
-# Terrashift-Bot
+# Javascript Sapphire Bot example
 
-This bot servers as a communication layer between bluemap and discord, allowing for creation of markers. It also serves as a way to lock/unlock our creative server in order to stop updates. 
+This is a basic setup of a Discord bot using the [sapphire framework][sapphire] written in Javascript
 
-## Setup
-Prerequisites: 
-- Node.js
+## How to use it?
 
-Simply clone this repo and rename ``config.json.example`` to ``config.json``, filling in all the fields neccessary. Install dependencies with ``npm i`` and start using ``npm start``
-### Config
-```json
-{
-  "token":"TOKEN HERE",
-  "clientId":"CLIENT ID",
-  "guildId":"GUILD ID",
-  "ptero_token":"PTERODACTYL TOKEN",
-  "server_id":"SERVER ID",
-  "creative_server_id":"CREATIVE SERVER ID"
-}
+### Prerequisite
+
+```sh
+npm install
 ```
+
+### Development
+
+This example can be run with `nodemon` to watch the files and automatically restart your bot.
+
+```sh
+npm run watch
+```
+
+### Production
+
+You can also run the bot with `npm start`, this will run `node ./src/index.js`. But this is not the recommended way to run a bot in production.
+
+## License
+
+Dedicated to the public domain via the [Unlicense], courtesy of the Sapphire Community and its contributors.
+
+[sapphire]: https://github.com/sapphiredev/framework
+[unlicense]: https://github.com/sapphiredev/examples/blob/main/LICENSE.md
