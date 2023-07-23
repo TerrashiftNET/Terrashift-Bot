@@ -2,6 +2,7 @@ require('./lib/setup');
 const { LogLevel, SapphireClient } = require('@sapphire/framework');
 const { prefix, discord_token } = require('./config.json');
 const { GatewayIntentBits, Partials } = require('discord.js');
+global.user = '';
 
 const client = new SapphireClient({
 	defaultPrefix: prefix,
