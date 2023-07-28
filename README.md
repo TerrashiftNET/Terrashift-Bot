@@ -1,9 +1,3 @@
-# Javascript Sapphire Bot example
-
-This is a basic setup of a Discord bot using the [sapphire framework][sapphire] written in Javascript
-
-## How to use it?
-
 ### Prerequisite
 
 ```sh
