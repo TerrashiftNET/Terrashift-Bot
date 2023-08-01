@@ -1,6 +1,7 @@
 const { Command } = require('@sapphire/framework');
-const fs = require('fs');
 const { EmbedBuilder } = require('@discordjs/builders');
+const fs = require('fs');
+const path = require('path');
 
 class UserCommand extends Command {
 	/**
@@ -8,9 +9,8 @@ class UserCommand extends Command {
 	 */
 	constructor(context) {
 		super(context, {
-			// Any Command options you want here
 			name: 'help',
-			description: 'Get a list of commands you can use'
+			description: 'List all commands'
 		});
 	}
 
@@ -29,19 +29,22 @@ class UserCommand extends Command {
 	 * @param {Command.ChatInputCommandInteraction} interaction
 	 */
 	async chatInputRun(interaction) {
-		// loop over the command files and get their name and description from the constructor
+		// loop over all files in the commands folder
+		const commandFiles = fs.readdirSync(path.join(__dirname, '../commands')).filter((file) => file.endsWith('.js'));
+		// import the name and description of each command
+		// name and description are defined in the constructor of each command
 		const commands = [];
-		const commandFiles = fs.readdirSync('./src/commands').filter((file) => file.endsWith('.js'));
-
 		for (const file of commandFiles) {
-			const command = require(`./${file}`);
-			commands.push({ name: command.name, value: command.description });
+			const { UserCommand } = require(`../commands/${file}`);
+			const instance = new UserCommand(this.options);
+			console.log(instance.name);
 		}
-
-		console.log(commands);
-
-		// create the embed
-		const embed = new EmbedBuilder().setTitle('Help').setDescription('Here is a list of commands you can use').addFields(commands);
+		// create an embed with the name and description of each command
+		const embed = new EmbedBuilder()
+			.setTitle('Commands')
+			.setDescription(commands.map((command) => `**${command.name}** - ${command.description}`).join('\n'));
+		// send the embed
+		await interaction.reply({ embeds: [embed], ephemeral: true });
 	}
 }
 
