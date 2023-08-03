@@ -103,31 +103,17 @@
     prompts "^2.4.2"
     tslib "^2.5.0"
 
-"@sapphire/cron@^1.1.1":
-  version "1.1.1"
-  resolved "https://registry.npmjs.org/@sapphire/cron/-/cron-1.1.1.tgz"
-  integrity sha512-SBQepfBkwCzYBqMfYB+lrfx7AK6zVdT4lK7X4Q0SthxYS82MYw6qAiRUd24bzhaXc33KBk7g7Uljbxu98qDDJw==
+"@sapphire/cron@^1.1.0":
+  version "1.1.0"
   dependencies:
-    "@sapphire/utilities" "^3.13.0"
+    "@sapphire/utilities" "^3.11.0"
 
-"@sapphire/discord-utilities@^3.0.3", "@sapphire/discord-utilities@^3.0.4":
-  version "3.0.4"
-  resolved "https://registry.npmjs.org/@sapphire/discord-utilities/-/discord-utilities-3.0.4.tgz"
-  integrity sha512-9PPGUWaEJJl37+l+zRFV5JQNWeL5eyBZcAf+5Zhwkxub9HsEesFQrcPlLMFc5MmwhrFIEs144ZAHeB4wv3sCog==
+"@sapphire/discord-utilities@^3.0.3":
+  version "3.0.3"
   dependencies:
-    discord-api-types "^0.37.50"
+    discord-api-types "^0.37.41"
 
-"@sapphire/discord.js-utilities@^7.0.1":
-  version "7.0.1"
-  resolved "https://registry.npmjs.org/@sapphire/discord.js-utilities/-/discord.js-utilities-7.0.1.tgz"
-  integrity sha512-v7NoU1AT9QR4P8FyvvaNGSYpWRo7/uABxnkTn3cXWkUVKHtv2BBz1O3nhklk5LhqDtD5lRtjLji4j6JXcA704g==
-  dependencies:
-    "@sapphire/discord-utilities" "^3.0.4"
-    "@sapphire/duration" "^1.1.0"
-    "@sapphire/utilities" "^3.13.0"
-    tslib "^2.6.0"
-
-"@sapphire/discord.js-utilities@7.0.0":
+"@sapphire/discord.js-utilities@^7.0.0", "@sapphire/discord.js-utilities@7.0.0":
   version "7.0.0"
   resolved "https://registry.npmjs.org/@sapphire/discord.js-utilities/-/discord.js-utilities-7.0.0.tgz"
   integrity sha512-9+nW2qQiIZdaAVWwRzlmM/5vqYNx9M27AXV9ogNg9SwBkmLz2lPB0PY8Y4XBoRCrR8PM7B/mOEW3AMb5yMqLdg==
@@ -150,19 +136,17 @@
     cross-fetch "^3.1.5"
 
 "@sapphire/framework@^4.4.4":
-  version "4.5.1"
-  resolved "https://registry.npmjs.org/@sapphire/framework/-/framework-4.5.1.tgz"
-  integrity sha512-73XOzQiIsZjq+GU4hlS8ffYk0afQXA0pQ/RXWADh2ua9yR36XEdtzFRQqQyPQjk2mP2ebtx6CfxQj/8LV9fDFw==
+  version "4.5.0"
   dependencies:
     "@discordjs/builders" "^1.6.3"
-    "@sapphire/discord-utilities" "^3.0.4"
-    "@sapphire/discord.js-utilities" "^7.0.1"
+    "@sapphire/discord-utilities" "^3.0.3"
+    "@sapphire/discord.js-utilities" "^7.0.0"
     "@sapphire/lexure" "^1.1.5"
-    "@sapphire/pieces" "^3.7.0"
+    "@sapphire/pieces" "^3.6.3"
     "@sapphire/ratelimits" "^2.4.6"
     "@sapphire/result" "^2.6.4"
     "@sapphire/stopwatch" "^1.5.0"
-    "@sapphire/utilities" "^3.13.0"
+    "@sapphire/utilities" "^3.12.0"
 
 "@sapphire/lexure@^1.1.5":
   version "1.1.5"
@@ -171,14 +155,12 @@
   dependencies:
     "@sapphire/result" "^2.6.4"
 
-"@sapphire/pieces@^3.7.0":
-  version "3.7.0"
-  resolved "https://registry.npmjs.org/@sapphire/pieces/-/pieces-3.7.0.tgz"
-  integrity sha512-DgkcvTja63rDPP4uByH2Ky3eNaYp+Yc1WoFaOsme5w5Nptruwj49sktY6KEbdBrxz23l3ofcxaqnfT/8RROJug==
+"@sapphire/pieces@^3.6.3":
+  version "3.6.3"
   dependencies:
     "@discordjs/collection" "^1.5.1"
-    "@sapphire/utilities" "^3.13.0"
-    tslib "^2.6.0"
+    "@sapphire/utilities" "^3.11.1"
+    tslib "^2.5.0"
 
 "@sapphire/plugin-api@^5.1.0":
   version "5.1.0"
@@ -199,21 +181,17 @@
     tslib "^2.5.0"
 
 "@sapphire/plugin-logger@^3.0.4":
-  version "3.0.5"
-  resolved "https://registry.npmjs.org/@sapphire/plugin-logger/-/plugin-logger-3.0.5.tgz"
-  integrity sha512-Y7D4f98TAyMSD/ZRIoQSg72HvzUtnjcV3NCk+Dk+SEv+uV5F0UI5SRVB4LRJIc4KW3qaQRxy3VLTIiEF8B2nIA==
+  version "3.0.4"
   dependencies:
     "@sapphire/timestamp" "^1.0.1"
     colorette "^2.0.20"
-    tslib "^2.6.0"
+    tslib "^2.5.0"
 
 "@sapphire/plugin-subcommands@^4.0.1":
-  version "4.0.2"
-  resolved "https://registry.npmjs.org/@sapphire/plugin-subcommands/-/plugin-subcommands-4.0.2.tgz"
-  integrity sha512-hWSRqdggUPQ3bmDajDyoUZ1SGg/CAi2ZNfj8n1s6NMBFOgjVffJajyIhnpVFgMjkNvpBFnFMjvf20QRPtS5fDw==
+  version "4.0.1"
   dependencies:
-    "@sapphire/utilities" "^3.13.0"
-    tslib "^2.6.0"
+    "@sapphire/utilities" "^3.11.1"
+    tslib "^2.5.0"
 
 "@sapphire/prettier-config@^1.4.5":
   version "1.4.5"
@@ -253,11 +231,9 @@
     tslib "^2.4.0"
 
 "@sapphire/time-utilities@^1.7.9":
-  version "1.7.10"
-  resolved "https://registry.npmjs.org/@sapphire/time-utilities/-/time-utilities-1.7.10.tgz"
-  integrity sha512-icmuse7m3oGJXRtweTmTT6vMMtCpWwGCpzephI5K8aQQRsfZwKYA+jAriSnT4+Lfw6LcR8j7TfkAAX7SyOOggQ==
+  version "1.7.9"
   dependencies:
-    "@sapphire/cron" "^1.1.1"
+    "@sapphire/cron" "^1.1.0"
     "@sapphire/duration" "^1.1.0"
     "@sapphire/timer-manager" "^1.0.0"
     "@sapphire/timestamp" "^1.0.1"
@@ -281,10 +257,8 @@
     nan "^2.17.0"
     tslib "^2.5.0"
 
-"@sapphire/utilities@^3.11.2", "@sapphire/utilities@^3.12.0", "@sapphire/utilities@^3.13.0":
-  version "3.13.0"
-  resolved "https://registry.npmjs.org/@sapphire/utilities/-/utilities-3.13.0.tgz"
-  integrity sha512-BD5ycPjZX5dXxrAb90dJTY8ukpPVBXgU17gA5ghK2memS4hwAzFYpvK+R+6zh4d6HYIKVuqrVhGXjvZenAa/Aw==
+"@sapphire/utilities@^3.11.0", "@sapphire/utilities@^3.11.1", "@sapphire/utilities@^3.11.2", "@sapphire/utilities@^3.12.0":
+  version "3.12.0"
 
 "@skyra/editable-commands@^3.0.1":
   version "3.0.1"
@@ -297,9 +271,7 @@
   integrity sha512-OvjF+z51L3ov0OyAU0duzsYuvO01PH7x4t6DJx+guahgTnBHkhJdG7soQeTSFLWN3efnHyibZ4Z8l2EuWwJN3A==
 
 "@types/node@*":
-  version "20.4.5"
-  resolved "https://registry.npmjs.org/@types/node/-/node-20.4.5.tgz"
-  integrity sha512-rt40Nk13II9JwQBdeYqmbn2Q6IVTA5uPhvSO+JVqdXw/6/4glI6oR9ezty/A9Hg5u7JH4OmYmuQ+XvjKm0Datg==
+  version "20.4.2"
 
 "@types/ws@^8.5.4", "@types/ws@^8.5.5":
   version "8.5.5"
@@ -371,22 +343,17 @@ array-buffer-byte-length@^1.0.0:
     call-bind "^1.0.2"
     is-array-buffer "^3.0.1"
 
-arraybuffer.prototype.slice@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.npmjs.org/arraybuffer.prototype.slice/-/arraybuffer.prototype.slice-1.0.1.tgz"
-  integrity sha512-09x0ZWFEjj4WD8PDbykUwo3t9arLn8NIzmmYEJFpYekOAQjpkGSyrQhNoRTcwwcFRu+ycWF78QZ63oWTqSjBcw==
-  dependencies:
-    array-buffer-byte-length "^1.0.0"
-    call-bind "^1.0.2"
-    define-properties "^1.2.0"
-    get-intrinsic "^1.2.1"
-    is-array-buffer "^3.0.2"
-    is-shared-array-buffer "^1.0.2"
-
 available-typed-arrays@^1.0.5:
   version "1.0.5"
   resolved "https://registry.npmjs.org/available-typed-arrays/-/available-typed-arrays-1.0.5.tgz"
   integrity sha512-DMD0KiN46eipeziST1LPP/STfDU0sufISXmjSgvVsoU2tqxctQeASejWcfNtxYKqETM1UxQ8sp2OrSBWpHY6sw==
+
+axios@^0.22.0:
+  version "0.22.0"
+  resolved "https://registry.npmjs.org/axios/-/axios-0.22.0.tgz"
+  integrity sha512-Z0U3uhqQeg1oNcihswf4ZD57O3NrR1+ZXhxaROaWpDmsDTx7T2HNBV2ulBtie2hwJptu8UvgnJoK+BIqdzh/1w==
+  dependencies:
+    follow-redirects "^1.14.4"
 
 balanced-match@^1.0.0:
   version "1.0.2"
@@ -549,14 +516,10 @@ delegates@^1.0.0:
   integrity sha512-bd2L678uiWATM6m5Z1VzNCErI3jiGzt6HGY8OVICs40JQq/HALfbyNJmp0UDakEY4pMMaN0Ly5om/B1VI/+xfQ==
 
 detect-libc@^2.0.0:
-  version "2.0.2"
-  resolved "https://registry.npmjs.org/detect-libc/-/detect-libc-2.0.2.tgz"
-  integrity sha512-UX6sGumvvqSaXgdKGUsgZWqcUyIXZ/vZTrlRT/iobiKhGL0zL4d3osHj3uqllWJK+i+sixDS/3COVEOFbupFyw==
+  version "2.0.1"
 
-discord-api-types@^0.37.41, discord-api-types@^0.37.50:
-  version "0.37.50"
-  resolved "https://registry.npmjs.org/discord-api-types/-/discord-api-types-0.37.50.tgz"
-  integrity sha512-X4CDiMnDbA3s3RaUXWXmgAIbY1uxab3fqe3qwzg5XutR3wjqi7M3IkgQbsIBzpqBN2YWr/Qdv7JrFRqSgb4TFg==
+discord-api-types@^0.37.41:
+  version "0.37.48"
 
 discord.js@^14.11.0:
   version "14.11.0"
@@ -583,6 +546,11 @@ emoji-regex@^8.0.0:
   resolved "https://registry.npmjs.org/emoji-regex/-/emoji-regex-8.0.0.tgz"
   integrity sha512-MSjYzcWNOA0ewAHpz0MxpYFvwg6yjy1NG3xteoqz644VCo/RPgnr1/GGt+ic3iJTzQ8Eu3TdM14SawnVUmGE6A==
 
+encoding@^0.1.0:
+  version "0.1.13"
+  dependencies:
+    iconv-lite "^0.6.2"
+
 error-ex@^1.3.1:
   version "1.3.2"
   resolved "https://registry.npmjs.org/error-ex/-/error-ex-1.3.2.tgz"
@@ -591,12 +559,9 @@ error-ex@^1.3.1:
     is-arrayish "^0.2.1"
 
 es-abstract@^1.19.0, es-abstract@^1.20.4:
-  version "1.22.1"
-  resolved "https://registry.npmjs.org/es-abstract/-/es-abstract-1.22.1.tgz"
-  integrity sha512-ioRRcXMO6OFyRpyzV3kE1IIBd4WG5/kltnzdxSCqoP8CMGs/Li+M1uF5o7lOkZVFjDs+NLesthnF66Pg/0q0Lw==
+  version "1.21.3"
   dependencies:
     array-buffer-byte-length "^1.0.0"
-    arraybuffer.prototype.slice "^1.0.1"
     available-typed-arrays "^1.0.5"
     call-bind "^1.0.2"
     es-set-tostringtag "^2.0.1"
@@ -623,13 +588,10 @@ es-abstract@^1.19.0, es-abstract@^1.20.4:
     object-keys "^1.1.1"
     object.assign "^4.1.4"
     regexp.prototype.flags "^1.5.0"
-    safe-array-concat "^1.0.0"
     safe-regex-test "^1.0.0"
     string.prototype.trim "^1.2.7"
     string.prototype.trimend "^1.0.6"
     string.prototype.trimstart "^1.0.6"
-    typed-array-buffer "^1.0.0"
-    typed-array-byte-length "^1.0.0"
     typed-array-byte-offset "^1.0.0"
     typed-array-length "^1.0.4"
     unbox-primitive "^1.0.2"
@@ -659,9 +621,7 @@ escape-string-regexp@^1.0.5:
   integrity sha512-vbRorB5FUQWvla16U8R/qgaFIya2qGzwDrNmCZuYKrbdSUMG6I1ZCGQRefkRVhuOkIGVne7BQ35DSfo1qvJqFg==
 
 execa@^7.1.1:
-  version "7.2.0"
-  resolved "https://registry.npmjs.org/execa/-/execa-7.2.0.tgz"
-  integrity sha512-UduyVP7TLB5IcAQl+OzLyLcS/l32W/GLg+AhHJ+ow40FOk2U3SAllPwR44v4vmdFwIWqpdwxxpQbF1n5ta9seA==
+  version "7.1.1"
   dependencies:
     cross-spawn "^7.0.3"
     get-stream "^6.0.1"
@@ -701,6 +661,11 @@ find-up@^5.0.0:
   dependencies:
     locate-path "^6.0.0"
     path-exists "^4.0.0"
+
+follow-redirects@^1.14.4:
+  version "1.15.2"
+  resolved "https://registry.npmjs.org/follow-redirects/-/follow-redirects-1.15.2.tgz"
+  integrity sha512-VQLG33o04KaQ8uYi2tVNbdrWp1QWxNNea+nmIB4EVM28v0hmP17z7aG1+wAkNzVq4KeXTq3221ye5qTJP91JwA==
 
 for-each@^0.3.3:
   version "0.3.3"
@@ -881,6 +846,11 @@ human-signals@^4.3.0:
   resolved "https://registry.npmjs.org/human-signals/-/human-signals-4.3.1.tgz"
   integrity sha512-nZXjEF2nbo7lIw3mgYjItAfgQXog3OjJogSbKa2CQIIvSGWcKgeJnQlNXip6NglNzYH45nSRiEVimMvYL8DDqQ==
 
+iconv-lite@^0.6.2:
+  version "0.6.3"
+  dependencies:
+    safer-buffer ">= 2.1.2 < 3.0.0"
+
 ieee754@^1.2.1:
   version "1.2.1"
   resolved "https://registry.npmjs.org/ieee754/-/ieee754-1.2.1.tgz"
@@ -954,10 +924,8 @@ is-callable@^1.1.3, is-callable@^1.1.4, is-callable@^1.2.7:
   resolved "https://registry.npmjs.org/is-callable/-/is-callable-1.2.7.tgz"
   integrity sha512-1BC0BVFhS/p0qtw6enp8e+8OD0UrK0oFLztSjNzhcKA3WDuJxxAPXzPuPtKkjEY9UUoEWlX/8fgKeu2S8i9JTA==
 
-is-core-module@^2.11.0:
+is-core-module@^2.12.0:
   version "2.12.1"
-  resolved "https://registry.npmjs.org/is-core-module/-/is-core-module-2.12.1.tgz"
-  integrity sha512-Q4ZuBAe2FUsKtyQJoQHlvP8OvBERxO3jEmy1I7hcRXcJBGGHFh/aJBswbXuS9sgrDH2QUO8ilkwNPHvHMd8clg==
   dependencies:
     has "^1.0.3"
 
@@ -1037,11 +1005,13 @@ is-symbol@^1.0.2, is-symbol@^1.0.3:
     has-symbols "^1.0.2"
 
 is-typed-array@^1.1.10, is-typed-array@^1.1.9:
-  version "1.1.12"
-  resolved "https://registry.npmjs.org/is-typed-array/-/is-typed-array-1.1.12.tgz"
-  integrity sha512-Z14TF2JNG8Lss5/HMqt0//T9JeHXttXy5pH/DBU4vi98ozO2btxzq9MwYDZYnKwU8nRsz/+GVFVRDq3DkVuSPg==
+  version "1.1.10"
   dependencies:
-    which-typed-array "^1.1.11"
+    available-typed-arrays "^1.0.5"
+    call-bind "^1.0.2"
+    for-each "^0.3.3"
+    gopd "^1.0.1"
+    has-tostringtag "^1.0.0"
 
 is-weakref@^1.0.2:
   version "1.0.2"
@@ -1049,11 +1019,6 @@ is-weakref@^1.0.2:
   integrity sha512-qctsuLZmIQ0+vSSMfoVvyFe2+GSEvnmZ2ezTup1SBse9+twCCeial6EEi3Nc2KFcf6+qz2FBPnjXsk8xhKSaPQ==
   dependencies:
     call-bind "^1.0.2"
-
-isarray@^2.0.5:
-  version "2.0.5"
-  resolved "https://registry.npmjs.org/isarray/-/isarray-2.0.5.tgz"
-  integrity sha512-xHjhDr3cNBK0BzdUJSPXZntQUx/mwMS5Rw4A7lPJ90XGAO6ISP/ePDNuo0vhqOZU+UD5JoodwCAAoZQd3FeAKw==
 
 isexe@^2.0.0:
   version "2.0.0"
@@ -1165,7 +1130,10 @@ mkdirp@^1.0.3:
   resolved "https://registry.npmjs.org/mkdirp/-/mkdirp-1.0.4.tgz"
   integrity sha512-vVqVZQyf3WLx2Shd0qJ9xuvqgAyKPLAiqITEtqW0oIUjzo3PePDd6fW9iFz30ef7Ysp/oiWqbhszeGWW2T6Gzw==
 
-ms@^2.1.1, ms@2.1.2:
+ms@^2.1.1:
+  version "2.1.3"
+
+ms@2.1.2:
   version "2.1.2"
   resolved "https://registry.npmjs.org/ms/-/ms-2.1.2.tgz"
   integrity sha512-sGkPx+VjMtmA6MX27oA4FBFELFCZZ4S4XqeGOXCv68tT+jb3vk/RyaKWP0PTKyWtmLSM0b+adUTEvbs1PEaH2w==
@@ -1186,6 +1154,13 @@ node-fetch@^2.6.12, node-fetch@^2.6.7:
   integrity sha512-C/fGU2E8ToujUivIO0H+tpQ6HWo4eEmchoPIoXtxCrVghxdKq+QOHqEZW7tuP3KlV3bC8FRMO5nMCC7Zm1VP6g==
   dependencies:
     whatwg-url "^5.0.0"
+
+nodeactyl@^3.3.0:
+  version "3.3.0"
+  resolved "https://registry.npmjs.org/nodeactyl/-/nodeactyl-3.3.0.tgz"
+  integrity sha512-rORdecNntORRsbObaBCIuZaiex+soENNVve5NtBLAUiHaEpVpX741YgvvUc0FrBzJeFDw9v+X9ZAF5lj1DOWog==
+  dependencies:
+    axios "^0.22.0"
 
 nodemon@^2.0.22:
   version "2.0.22"
@@ -1442,11 +1417,9 @@ regexp.prototype.flags@^1.5.0:
     functions-have-names "^1.2.3"
 
 resolve@^1.10.0:
-  version "1.22.2"
-  resolved "https://registry.npmjs.org/resolve/-/resolve-1.22.2.tgz"
-  integrity sha512-Sb+mjNHOULsBv818T40qSPeRiuWLyaGMa5ewydRLFimneixmVy2zdivRl+AF6jaYPC8ERxGDmFSiqui6SfPd+g==
+  version "1.22.3"
   dependencies:
-    is-core-module "^2.11.0"
+    is-core-module "^2.12.0"
     path-parse "^1.0.7"
     supports-preserve-symlinks-flag "^1.0.0"
 
@@ -1456,16 +1429,6 @@ rimraf@^3.0.2:
   integrity sha512-JZkJMZkAGFFPP2YqXZXPbMlMBgsxzE8ILs4lMIX/2o0L9UBw9O/Y3o6wFw/i9YLapcUJWwqbi3kdxIPdC62TIA==
   dependencies:
     glob "^7.1.3"
-
-safe-array-concat@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.npmjs.org/safe-array-concat/-/safe-array-concat-1.0.0.tgz"
-  integrity sha512-9dVEFruWIsnie89yym+xWTAYASdpw3CJV7Li/6zBewGf9z2i1j31rP6jnY0pHEO4QZh6N0K11bFjWmdR8UGdPQ==
-  dependencies:
-    call-bind "^1.0.2"
-    get-intrinsic "^1.2.0"
-    has-symbols "^1.0.3"
-    isarray "^2.0.5"
 
 safe-buffer@~5.2.0:
   version "5.2.1"
@@ -1480,6 +1443,9 @@ safe-regex-test@^1.0.0:
     call-bind "^1.0.2"
     get-intrinsic "^1.1.3"
     is-regex "^1.1.4"
+
+"safer-buffer@>= 2.1.2 < 3.0.0":
+  version "2.1.2"
 
 semver@^5.5.0:
   version "5.7.2"
@@ -1705,17 +1671,13 @@ tar@^6.1.11:
     mkdirp "^1.0.3"
     yallist "^4.0.0"
 
-tldts-core@^6.0.12:
-  version "6.0.12"
-  resolved "https://registry.npmjs.org/tldts-core/-/tldts-core-6.0.12.tgz"
-  integrity sha512-TYHGh0SJ+MUE0tg5LeDyNMmilUU8VD7fi+o74RGl3xwnakzCjpTFVTn8DHWiDJQmfG768ldqRPSQrvTP6CPjpg==
+tldts-core@^6.0.11:
+  version "6.0.11"
 
 tldts@^6.0.5:
-  version "6.0.12"
-  resolved "https://registry.npmjs.org/tldts/-/tldts-6.0.12.tgz"
-  integrity sha512-a3xVdMF9FgBqOR6bo51jA90cE0PyKiGIN/L0F8bOJOgMHJ+CujbNDnT3YSYlr/Kod4DJA5ihfJD5tiByx6njgg==
+  version "6.0.11"
   dependencies:
-    tldts-core "^6.0.12"
+    tldts-core "^6.0.11"
 
 to-regex-range@^5.0.1:
   version "5.0.1"
@@ -1749,29 +1711,8 @@ ts-mixer@^6.0.3:
   resolved "https://registry.npmjs.org/ts-mixer/-/ts-mixer-6.0.3.tgz"
   integrity sha512-k43M7uCG1AkTyxgnmI5MPwKoUvS/bRvLvUb7+Pgpdlmok8AoqmUaZxUUw8zKM5B1lqZrt41GjYgnvAi0fppqgQ==
 
-tslib@^2.4.0, tslib@^2.5.0, tslib@^2.5.2, tslib@^2.5.3, tslib@^2.6.0:
-  version "2.6.1"
-  resolved "https://registry.npmjs.org/tslib/-/tslib-2.6.1.tgz"
-  integrity sha512-t0hLfiEKfMUoqhG+U1oid7Pva4bbDPHYfJNiB7BiIjRkj1pyC++4N3huJfqY6aRH6VTB0rvtzQwjM4K6qpfOig==
-
-typed-array-buffer@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.npmjs.org/typed-array-buffer/-/typed-array-buffer-1.0.0.tgz"
-  integrity sha512-Y8KTSIglk9OZEr8zywiIHG/kmQ7KWyjseXs1CbSo8vC42w7hg2HgYTxSWwP0+is7bWDc1H+Fo026CpHFwm8tkw==
-  dependencies:
-    call-bind "^1.0.2"
-    get-intrinsic "^1.2.1"
-    is-typed-array "^1.1.10"
-
-typed-array-byte-length@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.npmjs.org/typed-array-byte-length/-/typed-array-byte-length-1.0.0.tgz"
-  integrity sha512-Or/+kvLxNpeQ9DtSydonMxCx+9ZXOswtwJn17SNLvhptaXYDJvkFFP5zbfU/uLmvnBJlI4yrnXRxpdWH/M5tNA==
-  dependencies:
-    call-bind "^1.0.2"
-    for-each "^0.3.3"
-    has-proto "^1.0.1"
-    is-typed-array "^1.1.10"
+tslib@^2.4.0, tslib@^2.5.0, tslib@^2.5.2, tslib@^2.5.3:
+  version "2.6.0"
 
 typed-array-byte-offset@^1.0.0:
   version "1.0.0"
@@ -1852,16 +1793,15 @@ which-boxed-primitive@^1.0.2:
     is-string "^1.0.5"
     is-symbol "^1.0.3"
 
-which-typed-array@^1.1.10, which-typed-array@^1.1.11:
-  version "1.1.11"
-  resolved "https://registry.npmjs.org/which-typed-array/-/which-typed-array-1.1.11.tgz"
-  integrity sha512-qe9UWWpkeG5yzZ0tNYxDmd7vo58HDBc39mZ0xWWpolAGADdFOzkfamWLDxkOWcvHQKVmdTyQdLD4NOfjLWTKew==
+which-typed-array@^1.1.10:
+  version "1.1.10"
   dependencies:
     available-typed-arrays "^1.0.5"
     call-bind "^1.0.2"
     for-each "^0.3.3"
     gopd "^1.0.1"
     has-tostringtag "^1.0.0"
+    is-typed-array "^1.1.10"
 
 which@^1.2.9:
   version "1.3.1"
