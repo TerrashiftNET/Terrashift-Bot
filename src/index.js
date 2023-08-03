@@ -3,6 +3,7 @@ const { LogLevel, SapphireClient } = require('@sapphire/framework');
 const { prefix, discord_token } = require('./config.json');
 const { GatewayIntentBits, Partials } = require('discord.js');
 global.user = '';
+const fs = require('fs');
 
 const client = new SapphireClient({
 	defaultPrefix: prefix,
@@ -33,6 +34,11 @@ const main = async () => {
 		client.logger.info('Logging in');
 		await client.login(discord_token);
 		client.logger.info('logged in');
+		// check if markers.json exists
+		if (!fs.existsSync('./markers.json')) {
+			// if it doesn't, create it
+			fs.writeFileSync('./markers.json', JSON.stringify({ markers: [], last_id: 0 }));
+		}
 	} catch (error) {
 		client.logger.fatal(error);
 		client.destroy();

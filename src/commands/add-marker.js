@@ -1,8 +1,10 @@
 const { EmbedBuilder } = require('@discordjs/builders');
 const { Command } = require('@sapphire/framework');
 const fs = require('fs');
-const { server_id, ptero_token } = require('../config.json');
+const { server_id, ptero_token, api_url } = require('../config.json');
 const https = require('https');
+const Nodeactyl = require('nodeactyl');
+const client = new Nodeactyl.NodeactylClient(api_url, ptero_token);
 
 class UserCommand extends Command {
 	/**
@@ -67,66 +69,48 @@ class UserCommand extends Command {
 			.setTitle('New Marker')
 			.setDescription(`Added a new marker at ${x}, ${y}, ${z} in the ${dimension} dimension.`);
 
-		if (fs.readFileSync('./markers.json').toString() !== '{}') {
-			var markers = JSON.parse(fs.readFileSync('./markers.json').toString());
-			var last_id = markers.last_id;
-			var random_id = last_id + 1;
-		} else {
-			var random_id = 1;
-		}
-		var step_1 = JSON.stringify({
-			command: `bmarker create poi`
-		});
+		// read the current directory for a file called markers.json
+		const data = fs.readFileSync('./markers.json');
 
-		var step_2 = JSON.stringify({
-			command: `bmarker-setup id ${random_id}`
-		});
+		// get the last id from the file
+		const last_id = JSON.parse(data).last_id;
+		// generate a new id
+		const random_id = last_id + 1;
 
-		var step_3 = JSON.stringify({
-			command: `bmarker-setup label ${name}`
-		});
+		var step_1 = `bmarker create poi`;
 
-		var step_4 = JSON.stringify({
-			command: `bmarker-setup position ${x} ${y} ${z}`
-		});
+		var step_2 = `bmarker-setup id ${random_id}`;
 
-		var step_5 = JSON.stringify({
-			command: `bmarker-setup marker_set 1_terrashift-${dimension}`
-		});
+		var step_3 = `bmarker-setup label ${name}`;
 
-		var step_6 = JSON.stringify({
-			command: `bmarker-setup build`
-		});
+		var step_4 = `bmarker-setup position ${x} ${y} ${z}`;
+
+		var step_5 = `bmarker-setup marker_set 1_Terrashift-${dimension}`;
+
+		var step_6 = `bmarker-setup build`;
 
 		const commands = [step_1, step_2, step_3, step_4, step_5, step_6];
 
-		const options = {
-			hostname: 'admin.terrashift.net',
-			path: `/api/client/servers` + server_id + `/command`,
-			method: 'POST',
-			headers: {
-				'Content-Type': 'application/json',
-				Accept: 'application/json',
-				Authorization: `Bearer ${ptero_token}`
-			}
+		const marker = {
+			id: random_id,
+			name: name,
+			x: x,
+			y: y,
+			z: z,
+			dimension: dimension
 		};
 
 		for (const command of commands) {
-			const req = https.request(options, (res) => {
-				console.log(`statusCode: ${res.statusCode}`);
-
-				res.on('data', (d) => {
-					process.stdout.write(d);
-				});
-			});
-
-			req.on('error', (error) => {
-				console.error(error);
-			});
-
-			req.write(command);
-			req.end();
+			await client.sendServerCommand(server_id, command);
 		}
+
+		const markers = JSON.parse(data).markers;
+
+		markers.push(marker);
+
+		fs.writeFileSync('./markers.json', JSON.stringify({ markers: markers, last_id: random_id }));
+
+		await interaction.reply({ embeds: [embed] });
 	}
 }
 
