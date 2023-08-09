@@ -1,6 +1,6 @@
 const { Command } = require('@sapphire/framework');
 const fetch = require('node-fetch');
-const { PermissionFlagsBits } = require('discord.js');
+const { PermissionFlagsBits, EmbedBuilder } = require('discord.js');
 const { api_secret } = require('../config.json');
 
 class UserCommand extends Command {
@@ -55,16 +55,17 @@ class UserCommand extends Command {
 		}
 
 		// create an embed with the user's details
-		const embed = this.context.client.utils
-			.embed()
+		const embed = new EmbedBuilder()
 			.setTitle('User Details')
 			.setDescription(`Details for ${user}`)
-			.addField('Username', user)
-			.addField('Discord', data.discord)
-			.addField('Email', data.email)
-			.addField('Age', data.age)
-			.addField('Reason', data.reason)
-			.addField('Looking For', data.lookingFor);
+			.addFields([
+				{ name: 'Username', value: user, inline: true },
+				{ name: 'Discord', value: data.discord, inline: true },
+				{ name: 'Age', value: data.age, inline: true },
+				{ name: 'Timezone', value: data.timezone, inline: true },
+				{ name: 'Reason', value: data.reason, inline: true },
+				{ name: 'Looking for', value: data.lookingFor, inline: true }
+			]);
 
 		// reply with the embed
 		await interaction.reply({ embeds: [embed] });
