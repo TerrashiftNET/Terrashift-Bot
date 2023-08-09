@@ -6,5 +6,6 @@
 	"server_id": "9ef9d4ae",
 	"creative_server_id": "2927ef1d",
 	"schedule_id": "2",
-	"api_url": "https://admin.terrashift.net"
+	"api_url": "https://admin.terrashift.net",
+	"api_secret": "bTBMHmQJmj8YHaxw"
 }
