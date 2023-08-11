@@ -62,7 +62,7 @@ class UserCommand extends Command {
 				{ name: 'Username', value: user, inline: true },
 				{ name: 'Discord', value: data.discord, inline: true },
 				{ name: 'Age', value: data.age, inline: true },
-				{ name: 'Timezone', value: data.timezone, inline: true },
+				{ name: 'Email', value: data.email, inline: true },
 				{ name: 'Reason', value: data.reason, inline: true },
 				{ name: 'Looking for', value: data.lookingFor, inline: true }
 			]);
