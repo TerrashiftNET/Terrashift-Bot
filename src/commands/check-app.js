@@ -64,7 +64,7 @@ class UserCommand extends Command {
 				{ name: 'Age', value: data.age, inline: true },
 				{ name: 'Email', value: data.email, inline: true },
 				{ name: 'Reason', value: data.reason, inline: true },
-				{ name: 'Looking for', value: data.lookingFor, inline: true }
+				{ name: 'Looking for', value: data.looking_for, inline: true }
 			]);
 
 		// reply with the embed
