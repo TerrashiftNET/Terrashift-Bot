@@ -21,7 +21,7 @@ config.ts
 *.log
 
 # Ignore npm lockfiles file
-package-lock.json
+# package-lock.json
 
 # Environment variables
 .env.local
@@ -29,4 +29,4 @@ package-lock.json
 .env.test.local
 .env.production.local
 src/config.json
-/src/config.json
+src/markers.json
