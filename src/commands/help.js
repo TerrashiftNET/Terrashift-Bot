@@ -37,7 +37,7 @@ class UserCommand extends Command {
 		for (const file of commandFiles) {
 			console.log(file)
 			const { UserCommand } = require(`../commands/${file}`);
-			const instance = new UserCommand(this.options);
+			const instance = new UserCommand();
 			console.log(instance.name);
 		}
 		// create an embed with the name and description of each command
