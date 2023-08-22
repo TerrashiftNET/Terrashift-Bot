@@ -36,7 +36,7 @@ class UserCommand extends Command {
         { name: "unlock", value: "Unlocks the Creative Server" },
         { name: "status", value: "Find out who locked the creative server" },
         { name: "lock", value: "Locks the Creative Server" },
-	      { name: "add-marker" value: "Add a marker to the live map" }
+	      { name: "add-marker", value: "Add a marker to the live map" }
       )
       .setColor("#FF91AF");
     await interaction.reply({ embeds: [embed] });
