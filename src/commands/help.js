@@ -40,7 +40,7 @@ class UserCommand extends Command {
       )
       .setColor("#FF91AF");
     await interaction.reply({ embeds: [embed] });
-  
+	}
 }
 
 module.exports = {
