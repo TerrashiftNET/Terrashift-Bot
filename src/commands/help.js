@@ -35,6 +35,7 @@ class UserCommand extends Command {
 		// name and description are defined in the constructor of each command
 		const commands = [];
 		for (const file of commandFiles) {
+			console.log(file)
 			const { UserCommand } = require(`../commands/${file}`);
 			const instance = new UserCommand(this.options);
 			console.log(instance.name);
