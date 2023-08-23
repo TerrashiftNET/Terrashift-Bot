@@ -2,6 +2,8 @@ const { Command } = require('@sapphire/framework');
 const { EmbedBuilder } = require('@discordjs/builders');
 const https = require('https');
 const { ptero_token, creative_server_id, schedule_id } = require('../config.json');
+const fs = require('fs');
+const path = require('path');
 
 class UserCommand extends Command {
 	/**
@@ -77,7 +79,14 @@ class UserCommand extends Command {
 		req.end();
 
 		const member = interaction.user.id;
-		global.user = member;
+		// if lock.json doesn't exist, create it
+		if (!fs.existsSync(path.join(__dirname, '../lock.json'))) {
+			fs.writeFileSync(path.join(__dirname, '../lock.json'), '{}');
+		}
+		// append the user and the current unix timestamp to lock.json
+		const lock = require('../lock.json');
+		lock[member] = Date.now();
+		fs.writeFileSync(path.join(__dirname, '../lock.json'), JSON.stringify(lock));
 
 		await interaction.reply({ embeds: [embed] });
 	}

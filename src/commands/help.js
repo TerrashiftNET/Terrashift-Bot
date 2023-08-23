@@ -30,16 +30,16 @@ class UserCommand extends Command {
 	 */
 	async chatInputRun(interaction) {
 		const embed = new EmbedBuilder()
-      .setTitle("Command List")
-      .setDescription(`A list of commands`)
-      .addFields(
-        { name: "unlock", value: "Unlocks the Creative Server" },
-        { name: "status", value: "Find out who locked the creative server" },
-        { name: "lock", value: "Locks the Creative Server" },
-	      { name: "add-marker", value: "Add a marker to the live map" }
-      )
-      .setColor("#FF91AF");
-    await interaction.reply({ embeds: [embed] });
+			.setTitle('Command List')
+			.setDescription(`A list of commands`)
+			.addFields(
+				{ name: 'unlock', value: 'Unlocks the Creative Server' },
+				{ name: 'status', value: 'Find out who locked the creative server' },
+				{ name: 'lock', value: 'Locks the Creative Server' },
+				{ name: 'add-marker', value: 'Add a marker to the live map' }
+			)
+			.setColor('#FF91AF');
+		await interaction.reply({ embeds: [embed] });
 	}
 }
 
