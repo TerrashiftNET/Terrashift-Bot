@@ -1,5 +1,5 @@
 const { Command } = require('@sapphire/framework');
-const { EmbedBuilder } = require('@discordjs/builders');
+const { EmbedBuilder } = require('discord.js');
 const https = require('https');
 const { ptero_token, creative_server_id, schedule_id } = require('../config.json');
 const fs = require('fs');
@@ -55,11 +55,13 @@ class UserCommand extends Command {
 
 		const member = interaction.user.id;
 		// read lock.json and remove member from it
-		const lock = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../lock.json')));
-		const index = lock.indexOf(member);
-		if (index > -1) {
-			lock.splice(index, 1);
-		}
+
+		// [{ '297333355819696130': 1692829214422 }, { '297333355819696130': 1692829223321 }];
+
+		const lock = JSON.parse(fs.readFileSync(path.resolve(__dirname, '../lock.json'), 'utf8'));
+		const index = lock.findIndex((obj) => Object.keys(obj)[0] == member);
+		lock.splice(index, 1);
+
 		fs.writeFileSync(path.resolve(__dirname, '../lock.json'), JSON.stringify(lock));
 
 		if (lock.length == 0) {
@@ -84,7 +86,10 @@ class UserCommand extends Command {
 
 			await interaction.reply({ embeds: [embed] });
 		} else {
-			const embed = new EmbedBuilder().setTitle('Creative Server is still locked by:').setDescription(lock.join('\n')).setColor('#FF91AF');
+			const embed = new EmbedBuilder()
+				.setTitle('Creative Server is still locked by:')
+				.setDescription(`<@${lock.map((obj) => Object.keys(obj)[0]).join('>\n <@')}>`)
+				.setColor('#FF91AF');
 
 			await interaction.reply({ embeds: [embed] });
 		}

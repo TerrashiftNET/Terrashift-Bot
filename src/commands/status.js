@@ -1,4 +1,7 @@
 const { Command } = require('@sapphire/framework');
+const { EmbedBuilder } = require('discord.js');
+const fs = require('fs');
+const path = require('path');
 
 class UserCommand extends Command {
 	/**
@@ -27,11 +30,13 @@ class UserCommand extends Command {
 	 * @param {Command.ChatInputCommandInteraction} interaction
 	 */
 	async chatInputRun(interaction) {
-		if (global.user === '') {
-			await interaction.reply({ content: 'The creative server is unlocked', ephemeral: true });
-		} else {
-			await interaction.reply({ content: `The creative server is locked by <@${global.user}>`, ephemeral: true });
-		}
+		const lock = JSON.parse(fs.readFileSync(path.join(__dirname, '../lock.json'), 'utf8'));
+
+		const embed = new EmbedBuilder()
+			.setTitle('The Creative Server is currently locked by:')
+			.setDescription(`<@${lock.map((obj) => Object.keys(obj)[0]).join('>\n <@')}>`)
+			.setColor('#FF91AF');
+		await interaction.reply({ embeds: [embed] });
 	}
 }
 
