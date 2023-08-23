@@ -4,6 +4,7 @@ const https = require('https');
 const { ptero_token, creative_server_id, schedule_id } = require('../config.json');
 const fs = require('fs');
 const path = require('path');
+const lock = require('../lock.json');
 
 class UserCommand extends Command {
 	/**
@@ -83,8 +84,15 @@ class UserCommand extends Command {
 		if (!fs.existsSync(path.join(__dirname, '../lock.json'))) {
 			fs.writeFileSync(path.join(__dirname, '../lock.json'), '{}');
 		}
+
+		// if the user is already in lock.json, return
+
+		if (lock[member]) {
+			await interaction.reply({ content: 'You have already locked the creative server', ephemeral: true });
+			return;
+		}
 		// append the user and the current unix timestamp to lock.json
-		const lock = require('../lock.json');
+
 		lock[member] = Date.now();
 		fs.writeFileSync(path.join(__dirname, '../lock.json'), JSON.stringify(lock));
 
