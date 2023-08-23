@@ -30,3 +30,4 @@ config.ts
 .env.production.local
 src/config.json
 src/markers.json
+src/lock.json
