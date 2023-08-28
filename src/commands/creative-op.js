@@ -44,7 +44,7 @@ class UserCommand extends Command {
 			.setTitle(`User Op'd`)
 			.setDescription(`${username}`);
 	
-		var command = `op ${username}`:
+		var command = `op ${username}`;
 		
 		await client.sendServerCommand(creative_server_id, command);
 
