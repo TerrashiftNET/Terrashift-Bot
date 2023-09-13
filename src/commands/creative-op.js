@@ -31,7 +31,7 @@ class UserCommand extends Command {
 						.setDescription('The username of the user to op')
 						.setRequired(true)
 				)
-			        .setDefaultMemberPermissions(PermissionFlagsBits.Administrator)
+			        .setDefaultMemberPermissions(PermissionFlagsBits.BanMembers)
 		);
 	}
 
