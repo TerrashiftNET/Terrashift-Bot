@@ -1,4 +1,4 @@
-const { EmbedBuilder, PermissionFlagsBits } = require('@discordjs/builders');
+const { EmbedBuilder, PermissionFlagsBits } = require('discord.js');
 const { Command } = require('@sapphire/framework');
 const { creative_server_id, ptero_token, api_url } = require('../config.json');
 const https = require('https');
@@ -31,7 +31,7 @@ class UserCommand extends Command {
 						.setDescription('The username of the user to op')
 						.setRequired(true)
 				)
-			        .setDefaultMemberPermissions(PermissionFlagsBits.BanMembers)
+			        .setDefaultMemberPermissions(PermissionFlagsBits.Administrator)
 		);
 	}
 
