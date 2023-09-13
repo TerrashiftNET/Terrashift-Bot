@@ -1,4 +1,4 @@
-const { EmbedBuilder } = require('@discordjs/builders');
+const { EmbedBuilder, PermissionFlagsBits } = require('@discordjs/builders');
 const { Command } = require('@sapphire/framework');
 const { creative_server_id, ptero_token, api_url } = require('../config.json');
 const https = require('https');
