@@ -30,7 +30,7 @@ class UserCommand extends Command {
 						.setName('username')
 						.setDescription('The username of the user to op')
 						.setRequired(true)
-				)
+				))
 	}
 
 	/**
