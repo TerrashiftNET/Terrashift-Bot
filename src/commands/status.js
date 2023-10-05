@@ -32,11 +32,19 @@ class UserCommand extends Command {
 	async chatInputRun(interaction) {
 		const lock = JSON.parse(fs.readFileSync(path.join(__dirname, '../lock.json'), 'utf8'));
 
+		if (lock.length == 0) {
 		const embed = new EmbedBuilder()
-			.setTitle('The Creative Server is currently locked by:')
-			.setDescription(`<@${lock.map((obj) => Object.keys(obj)[0]).join('>\n <@')}>`)
+			.setTitle('The Creative Server is currently unlocked and is due to be overwritten at')
+			.setDescription(`To be updated`)
 			.setColor('#FF91AF');
-		await interaction.reply({ embeds: [embed] });
+		}
+		else {
+			const embed = new EmbedBuilder()
+				.setTitle('The Creative Server is currently locked by:')
+				.setDescription(`<@${lock.map((obj) => Object.keys(obj)[0]).join('>\n <@')}>`)
+				.setColor('#FF91AF');
+			await interaction.reply({ embeds: [embed] });
+		}
 	}
 }
 
