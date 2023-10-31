@@ -61,7 +61,6 @@ class UserCommand extends Command {
 		const y = interaction.options.getInteger('y');
 		const z = interaction.options.getInteger('z');
 		const dimension = interaction.options.getString('dimension');
-		const name = interaction.options.getString('name');
 
 		const embed = new EmbedBuilder()
 			.setTitle('New Farm Added')
