@@ -15,6 +15,7 @@ dist/
 
 # Ignore the config file (contains sensitive information such as tokens)
 config.ts
+config.json
 
 # Ignore heapsnapshot and log files
 *.heapsnapshot
@@ -28,6 +29,8 @@ config.ts
 .env.development.local
 .env.test.local
 .env.production.local
-src/config.json
-src/markers.json
 src/lock.json
+markers.json
+lock.json
+farm-prot.json
+
