@@ -39,6 +39,9 @@ const main = async () => {
 			// if it doesn't, create it
 			fs.writeFileSync('./markers.json', JSON.stringify({ markers: [], last_id: 0 }));
 		}
+		if (!fs.existsSync('./farm-prot.json')) {
+			fs.writrFileSync('./farm-prot.json' JSON.stringify({ farms: []}))
+		}
 	} catch (error) {
 		client.logger.fatal(error);
 		client.destroy();
