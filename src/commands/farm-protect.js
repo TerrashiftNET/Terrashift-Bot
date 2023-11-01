@@ -13,8 +13,8 @@ class UserCommand extends Command {
 	constructor(context) {
 		super(context, {
 			// Any Command options you want here
-			name: 'add-marker',
-			description: 'Add a new marker to the livemap'
+			name: 'farm-protect',
+			description: 'Protects restart sensitive farms from breaking '
 		});
 	}
 
