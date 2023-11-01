@@ -32,7 +32,7 @@ class UserCommand extends Command {
 	async chatInputRun(interaction) {
 		const lock = JSON.parse(fs.readFileSync(path.join(__dirname, '../lock.json'), 'utf8'));
 
-		if (lock.length == 0) {
+		if (!lock.length > 0) {
 		const embed = new EmbedBuilder()
 			.setTitle('The Creative Server is currently unlocked and is due to be overwritten at')
 			.setDescription(`To be updated`)
