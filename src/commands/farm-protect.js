@@ -50,7 +50,7 @@ class UserCommand extends Command {
 						.setDescription('The dimension of the farm')
 						.setRequired(true)
 						.addChoices({ name: 'Overworld', value: 'overworld' }, { name: 'Nether', value: 'nether' }, { name: 'End', value: 'end' })
-				)
+				))
 	}
 
 	/**
