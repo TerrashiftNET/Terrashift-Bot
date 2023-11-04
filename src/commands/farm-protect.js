@@ -64,7 +64,7 @@ class UserCommand extends Command {
 
 		const embed = new EmbedBuilder()
 			.setTitle('New Farm Added')
-			.setDescription(`The block at ${x}, ${y}, ${z} will be replaced when the server restarts.`);
+			.setDescription(`The block at ${x}, ${y}, ${z} in dimension **${dimension}** will be replaced when the server restarts.`);
 
 		// read the current directory for a file called farm-prot.json
 		const data = fs.readFileSync('./farm-prot.json');
