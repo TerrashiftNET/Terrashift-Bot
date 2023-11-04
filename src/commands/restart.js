@@ -37,30 +37,31 @@ class UserCommand extends Command {
 	async chatInputRun(interaction) {
 		const data = fs.readFileSync('./farm-prot.json');
 
-		const farmsData = JSON.parse(data)
-		
-		await Promise.all(farmsData.farms.map(async (farm, index) => {
-			const location = {
-				x: farm.x,
-				y: farm.y,
-				z: farm.z,
-				dimension: farm.dimension
-			};
-			console.log(location)
+		const farmsData = JSON.parse(data);
 
-			if ((location.dimension = 'nether')) {
-				var command = `execute in minecraft:the_nether run setblock ${location.x} ${location.y} ${location.z} redstone_block`;
-			} else if ((location.dimension = 'end')) {
-				var command = `execute in minecraft:the_end run setblock ${location.x} ${location.y} ${location.z} redstone_block`;
-			} else if((location.dimension = 'overworld')){
-				var command = `execute in minecraft:overworld run setblock ${location.x} ${location.y} ${location.z} redstone_block`;
-			}
-			else {
-				await interaction.reply(`Invalid dimension in farm ${index}`)
-			}
+		await Promise.all(
+			farmsData.farms.map(async (farm, index) => {
+				const location = {
+					x: farm.x,
+					y: farm.y,
+					z: farm.z,
+					dimension: farm.dimension
+				};
+				console.log(location);
 
-			await client.sendServerCommand(server_id, command);
-		}));
+				if ((location.dimension = 'nether')) {
+					var command = `execute in minecraft:the_nether run setblock ${location.x} ${location.y} ${location.z} redstone_block`;
+				} else if ((location.dimension = 'end')) {
+					var command = `execute in minecraft:the_end run setblock ${location.x} ${location.y} ${location.z} redstone_block`;
+				} else if ((location.dimension = 'overworld')) {
+					var command = `execute in minecraft:overworld run setblock ${location.x} ${location.y} ${location.z} redstone_block`;
+				} else {
+					await interaction.reply(`Invalid dimension in farm ${index}`);
+				}
+
+				await client.sendServerCommand(server_id, command);
+			})
+		);
 
 		const embed = new EmbedBuilder().setTitle('Test result').setDescription(`Test successful `);
 
