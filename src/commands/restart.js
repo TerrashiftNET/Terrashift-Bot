@@ -6,6 +6,7 @@ const { creative_server_id, server_id, ptero_token, api_url } = require('../conf
 const https = require('https');
 const Nodeactyl = require('nodeactyl');
 const client = new Nodeactyl.NodeactylClient(api_url, ptero_token);
+const wait = require('node:timers/promises').setTimeout;
 
 class UserCommand extends Command {
 	/**
@@ -40,6 +41,8 @@ class UserCommand extends Command {
 		const farmsData = JSON.parse(data);
 
 		await Promise.all(
+			const embed = new EmbedBuilder().setTitle('Replacing blocks...').setDescription(`Preparing to restart by placing blocks and waiting 30 seconds`);
+		        await interaction.reply({ embeds: [embed] })
 			farmsData.farms.map(async (farm, index) => {
 				const location = {
 					x: farm.x,
@@ -56,18 +59,20 @@ class UserCommand extends Command {
 				} else if ((location.dimension = 'overworld')) {
 					var command = `execute in minecraft:overworld run setblock ${location.x} ${location.y} ${location.z} redstone_block`;
 				} else {
-					await interaction.reply(`Invalid dimension in farm ${index}`);
+					await interaction.editReply(`Invalid dimension in farm ${index}`);
 				}
 
 				await client.sendServerCommand(server_id, command);
 			})
 		);
 
+		wait(3000);
+
 		await client.restartServer(creative_server_id)
-
-		const embed = new EmbedBuilder().setTitle('Test result').setDescription(`Test successful `);
-
-		await interaction.reply({ embeds: [embed] });
+			.then(result => {
+				const embed = new EmbedBuilder().setTitle('Server Restarted').setDescription(`Server is restarting`);
+				await interaction.editReply({ embeds: [embed] });
+		})
 	}
 }
 
