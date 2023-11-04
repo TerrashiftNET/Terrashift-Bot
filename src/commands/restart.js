@@ -66,6 +66,7 @@ class UserCommand extends Command {
 			.setDescription(`Test successful `);
   
   await interaction.reply({ embeds: [embed] });
+	}
 }
 
 module.exports = {
