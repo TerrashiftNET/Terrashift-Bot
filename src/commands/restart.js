@@ -37,9 +37,9 @@ class UserCommand extends Command {
 	async chatInputRun(interaction) {
 		const data = fs.readFileSync('./farm-prot.json');
 
-		const farms = JSON.parse(data).farms
+		const farmsData = JSON.parse(data)
 		
-		await Promise.all(farms.map(async (farm, index) => {
+		await Promise.all(farmsData.farms.map(async (farm, index) => {
 			const location = {
 				x: farm.x,
 				y: farm.y,
