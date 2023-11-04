@@ -38,6 +38,7 @@ class UserCommand extends Command {
 		const data = fs.readFileSync('./farm-prot.json');
 
 		const farms = JSON.parse(data).farms;
+		console.log(farms)
 		for (const farm of farms) {
 			const location = {
 				x: farm.x,
