@@ -78,7 +78,7 @@ class UserCommand extends Command {
 
 		const farms = JSON.parse(data).farms;
 
-		farm.push(farm);
+		farms.push(farm);
 
 		fs.writeFileSync('./farm-prot.json', JSON.stringify({ farms: farms }));
 
