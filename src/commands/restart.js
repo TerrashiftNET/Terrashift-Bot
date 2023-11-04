@@ -67,7 +67,7 @@ class UserCommand extends Command {
 			})
 	)
 		
-		wait(3000);
+		wait(30000);
 
 		await client.restartServer(creative_server_id)
 			.then(result => {
