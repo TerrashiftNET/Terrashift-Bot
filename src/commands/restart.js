@@ -40,9 +40,10 @@ class UserCommand extends Command {
 
 		const farmsData = JSON.parse(data);
 
-		await Promise.all(
-			await interaction.reply({ embeds: new EmbedBuilder().setTitle('Replacing blocks...').setDescription(`Preparing to restart by placing blocks and waiting 30 seconds`)}),
+		await interaction.reply({ embeds: new EmbedBuilder().setTitle('Replacing blocks...').setDescription(`Preparing to restart by placing blocks and waiting 30 seconds`)})
 
+		await Promise.all(
+			
 			farmsData.farms.map(async (farm, index) => {
 				const location = {
 					x: farm.x,
