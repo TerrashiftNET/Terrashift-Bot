@@ -35,20 +35,16 @@ class UserCommand extends Command {
 	 * @param {Command.ChatInputCommandInteraction} interaction
 	 */
 	async chatInputRun(interaction) {
-    
-    // read the current directory for a file called markers.json
 		const data = fs.readFileSync('./farm-prot.json');
-
-		// get the last id from the file
+		
 		const farms = JSON.parse(data).farms
-		// generate a new id
-		for (const farm of farms){
-      const location = {
-        x: farm.x,
-        y: farm.y,
-        z: farm.z,
-        dimension: farm.dimension
-    }
+			for (const farm of farms){
+				const location = {
+					x: farm.x,
+					y: farm.y,
+					z: farm.z,
+					dimension: farm.dimension
+				}
 
     if (dimension = "nether") {
       var command = `execute in minecraft:the_nether run setblock ${location.x} ${location.y} ${location.z} redstone_block`
