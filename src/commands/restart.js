@@ -46,6 +46,7 @@ class UserCommand extends Command {
 				z: farm.z,
 				dimension: farm.dimension
 			};
+			console.log(location)
 
 			if ((dimension = 'nether')) {
 				var command = `execute in minecraft:the_nether run setblock ${location.x} ${location.y} ${location.z} redstone_block`;
