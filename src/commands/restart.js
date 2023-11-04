@@ -46,7 +46,7 @@ class UserCommand extends Command {
       const location = {
         x: farm.x,
         y: farm.y,
-        z, farm.z,
+        z: farm.z,
         dimension: farm.dimension
     }
 
