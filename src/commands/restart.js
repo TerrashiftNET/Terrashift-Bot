@@ -70,7 +70,7 @@ class UserCommand extends Command {
 		
 
 		setTimeout(function() {
-			await client.restartServer(creative_server_id)
+			client.restartServer(creative_server_id)
 			.then(result => {
 				const embed = new EmbedBuilder().setTitle('Server Restarted').setDescription(`Server is restarting`);
 				interaction.editReply({ embeds: [embed] });
