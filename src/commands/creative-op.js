@@ -25,12 +25,8 @@ class UserCommand extends Command {
 			builder //
 				.setName(this.name)
 				.setDescription(this.description)
-				.addStringOption((option) =>
-					option
-						.setName('username')
-						.setDescription('The username of the user to op')
-						.setRequired(true)
-				))
+				.addStringOption((option) => option.setName('username').setDescription('The username of the user to op').setRequired(true))
+		);
 	}
 
 	/**
@@ -39,12 +35,10 @@ class UserCommand extends Command {
 	async chatInputRun(interaction) {
 		const username = interaction.options.getString('username');
 
-		const embed = new EmbedBuilder()
-			.setTitle(`User Op'd`)
-			.setDescription(`${username}`);
-	
+		const embed = new EmbedBuilder().setTitle(`User Op'd`).setDescription(`${username}`);
+
 		var command = `op ${username}`;
-		
+
 		await client.sendServerCommand(creative_server_id, command);
 
 		await interaction.reply({ embeds: [embed] });

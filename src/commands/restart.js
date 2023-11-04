@@ -27,7 +27,7 @@ class UserCommand extends Command {
 			builder //
 				.setName(this.name)
 				.setDescription(this.description)
-        .setDefaultMemberPermissions(PermissionFlagsBits.Administrator)
+				.setDefaultMemberPermissions(PermissionFlagsBits.Administrator)
 		);
 	}
 
@@ -36,32 +36,30 @@ class UserCommand extends Command {
 	 */
 	async chatInputRun(interaction) {
 		const data = fs.readFileSync('./farm-prot.json');
-		
-		const farms = JSON.parse(data).farms
-			for (const farm of farms){
-				const location = {
-					x: farm.x,
-					y: farm.y,
-					z: farm.z,
-					dimension: farm.dimension
-				}
 
-    if (dimension = "nether") {
-      var command = `execute in minecraft:the_nether run setblock ${location.x} ${location.y} ${location.z} redstone_block`
-    } else if (dimension = "end") {
-      var command = `execute in minecraft:the_end run setblock ${location.x} ${location.y} ${location.z} redstone_block` 
-    } else {
-      var command = `execute in minecraft:overworld run setblock ${location.x} ${location.y} ${location.z} redstone_block`
-    }
+		const farms = JSON.parse(data).farms;
+		for (const farm of farms) {
+			const location = {
+				x: farm.x,
+				y: farm.y,
+				z: farm.z,
+				dimension: farm.dimension
+			};
 
-    await client.sendServerCommand(server_id, command);
-  };
+			if ((dimension = 'nether')) {
+				var command = `execute in minecraft:the_nether run setblock ${location.x} ${location.y} ${location.z} redstone_block`;
+			} else if ((dimension = 'end')) {
+				var command = `execute in minecraft:the_end run setblock ${location.x} ${location.y} ${location.z} redstone_block`;
+			} else {
+				var command = `execute in minecraft:overworld run setblock ${location.x} ${location.y} ${location.z} redstone_block`;
+			}
 
-  const embed = new EmbedBuilder()
-			.setTitle('Test result')
-			.setDescription(`Test successful `);
-  
-  await interaction.reply({ embeds: [embed] });
+			await client.sendServerCommand(server_id, command);
+		}
+
+		const embed = new EmbedBuilder().setTitle('Test result').setDescription(`Test successful `);
+
+		await interaction.reply({ embeds: [embed] });
 	}
 }
 
