@@ -37,9 +37,9 @@ class UserCommand extends Command {
 	async chatInputRun(interaction) {
 		const data = fs.readFileSync('./farm-prot.json');
 
-		const farms = JSON.parse(data).farms;
-		console.log(farms)
-		for (const farm of farms) {
+		const farms = JSON.parse(data).farms
+		
+		farms.forEach((farm, index) => {
 			const location = {
 				x: farm.x,
 				y: farm.y,
@@ -56,7 +56,7 @@ class UserCommand extends Command {
 			}
 
 			await client.sendServerCommand(server_id, command);
-		}
+		});
 
 		const embed = new EmbedBuilder().setTitle('Test result').setDescription(`Test successful `);
 
