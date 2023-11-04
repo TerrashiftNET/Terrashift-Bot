@@ -53,11 +53,11 @@ class UserCommand extends Command {
 				};
 				console.log(location);
 
-				if ((location.dimension = 'nether')) {
+				if ((location.dimension === 'nether')) {
 					var command = `execute in minecraft:the_nether run setblock ${location.x} ${location.y} ${location.z} redstone_block`;
-				} else if ((location.dimension = 'end')) {
+				} else if ((location.dimension === 'end')) {
 					var command = `execute in minecraft:the_end run setblock ${location.x} ${location.y} ${location.z} redstone_block`;
-				} else if ((location.dimension = 'overworld')) {
+				} else if ((location.dimension === 'overworld')) {
 					var command = `execute in minecraft:overworld run setblock ${location.x} ${location.y} ${location.z} redstone_block`;
 				} else {
 					await interaction.editReply(`Invalid dimension in farm ${index}`);
