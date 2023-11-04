@@ -41,9 +41,8 @@ class UserCommand extends Command {
 		const farmsData = JSON.parse(data);
 
 		await Promise.all(
-			
-		const embed = new EmbedBuilder().setTitle('Replacing blocks...').setDescription(`Preparing to restart by placing blocks and waiting 30 seconds`);
-		        await interaction.reply({ embeds: [embed] })
+			await interaction.reply({ embeds: new EmbedBuilder().setTitle('Replacing blocks...').setDescription(`Preparing to restart by placing blocks and waiting 30 seconds`)}),
+
 			farmsData.farms.map(async (farm, index) => {
 				const location = {
 					x: farm.x,
@@ -65,14 +64,14 @@ class UserCommand extends Command {
 
 				await client.sendServerCommand(server_id, command);
 			})
-		)
+	)
 		
 		wait(3000);
 
 		await client.restartServer(creative_server_id)
 			.then(result => {
 				const embed = new EmbedBuilder().setTitle('Server Restarted').setDescription(`Server is restarting`);
-				await interaction.editReply({ embeds: [embed] });
+				interaction.editReply({ embeds: [embed] });
 		})
 	}
 }
