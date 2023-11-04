@@ -2,7 +2,7 @@ const { EmbedBuilder } = require('@discordjs/builders');
 const { Command } = require('@sapphire/framework');
 const { PermissionFlagsBits } = require('discord.js');
 const fs = require('fs');
-const { server_id, ptero_token, api_url } = require('../config.json');
+const { creative_server_id, server_id, ptero_token, api_url } = require('../config.json');
 const https = require('https');
 const Nodeactyl = require('nodeactyl');
 const client = new Nodeactyl.NodeactylClient(api_url, ptero_token);
@@ -62,6 +62,8 @@ class UserCommand extends Command {
 				await client.sendServerCommand(server_id, command);
 			})
 		);
+
+		await client.restartServer(creative_server_id)
 
 		const embed = new EmbedBuilder().setTitle('Test result').setDescription(`Test successful `);
 
