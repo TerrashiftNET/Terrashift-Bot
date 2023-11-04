@@ -56,7 +56,7 @@ class UserCommand extends Command {
 			}
 
 			await client.sendServerCommand(server_id, command);
-		});
+		}));
 
 		const embed = new EmbedBuilder().setTitle('Test result').setDescription(`Test successful `);
 
