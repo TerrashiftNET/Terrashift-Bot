@@ -39,7 +39,7 @@ class UserCommand extends Command {
 
 		const farms = JSON.parse(data).farms
 		
-		farms.forEach((farm, index) => {
+		await Promise.all(farms.map(async (farm, index) => {
 			const location = {
 				x: farm.x,
 				y: farm.y,
