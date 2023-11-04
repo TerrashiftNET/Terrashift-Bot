@@ -41,7 +41,8 @@ class UserCommand extends Command {
 		const farmsData = JSON.parse(data);
 
 		await Promise.all(
-			const embed = new EmbedBuilder().setTitle('Replacing blocks...').setDescription(`Preparing to restart by placing blocks and waiting 30 seconds`);
+			
+		const embed = new EmbedBuilder().setTitle('Replacing blocks...').setDescription(`Preparing to restart by placing blocks and waiting 30 seconds`);
 		        await interaction.reply({ embeds: [embed] })
 			farmsData.farms.map(async (farm, index) => {
 				const location = {
@@ -64,8 +65,8 @@ class UserCommand extends Command {
 
 				await client.sendServerCommand(server_id, command);
 			})
-		);
-
+		)
+		
 		wait(3000);
 
 		await client.restartServer(creative_server_id)
