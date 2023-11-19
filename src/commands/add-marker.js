@@ -49,7 +49,7 @@ class UserCommand extends Command {
 						.setName('dimension')
 						.setDescription('The dimension of the marker')
 						.setRequired(true)
-						.addChoices({ name: 'Overworld', value: 'overworld' }, { name: 'Nether', value: 'nether' }, { name: 'End', value: 'end' })
+						.addChoices({ name: 'Overworld', value: 'Overworld' }, { name: 'Nether', value: 'Nether' }, { name: 'End', value: 'End' })
 				)
 				.addStringOption((option) => option.setName('name').setDescription('The name of the marker').setRequired(true))
 		);
