@@ -85,7 +85,7 @@ class UserCommand extends Command {
 
 		var step_4 = `bmarker-setup position ${x} ${y} ${z}`;
 
-		var step_5 = `bmarker-setup marker_set 1_Terrashift-${dimension}`;
+		var step_5 = `bmarker-setup marker_set 1-${dimension}`;
 
 		var step_6 = `bmarker-setup build`;
 
