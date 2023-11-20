@@ -1,0 +1,11 @@
+{
+        "discord_token": "",
+        "clientId": "",
+        "guildId": "",
+        "ptero_token": "",
+        "server_id": "",
+        "creative_server_id": "",
+        "schedule_id": "",
+        "api_url": "",
+        "api_secret": ""
+}
