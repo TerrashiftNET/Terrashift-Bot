@@ -1,7 +1,7 @@
 const { Command } = require('@sapphire/framework');
 const { ApplicationCommandType, EmbedBuilder, PermissionFlagsBits } = require('discord.js');
 
-const MESSAGE_TIMEOUT = 30000;
+const MESSAGE_TIMEOUT = 60000;
 const DEFAULT_PERMISSIONS = PermissionFlagsBits.ManageMessages;
 
 class EditMessageCommand extends Command {
