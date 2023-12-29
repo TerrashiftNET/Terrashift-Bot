@@ -23,6 +23,7 @@ class EditMessageCommand extends Command {
 	async contextMenuRun(interaction) {
 		try {
 			const message = await interaction.guild.channels.cache.get(interaction.channelId).messages.fetch(interaction.targetId);
+			const oldContent = message.content;
 
 			if (!message) {
 				await interaction.reply({ content: 'The message could not be found.', ephemeral: true });
@@ -47,7 +48,7 @@ class EditMessageCommand extends Command {
 				.setTitle('Message Edited')
 				.setDescription(`Message edited by ${interaction.user.tag}`)
 				.addFields([
-					{ name: 'Old Content', value: message.content },
+					{ name: 'Old Content', value: oldContent},
 					{ name: 'New Content', value: newContent }
 				])
 				.setTimestamp(new Date());
