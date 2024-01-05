@@ -48,7 +48,7 @@ class EditMessageCommand extends Command {
 				.setTitle('Message Edited')
 				.setDescription(`Message edited by ${interaction.user.tag}`)
 				.addFields([
-					{ name: 'Old Content', value: oldContent},
+					{ name: 'Old Content', value: oldContent },
 					{ name: 'New Content', value: newContent }
 				])
 				.setTimestamp(new Date());

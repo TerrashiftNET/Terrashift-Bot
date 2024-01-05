@@ -40,10 +40,13 @@ class UserCommand extends Command {
 
 		const farmsData = JSON.parse(data);
 
-		await interaction.reply({ embeds: [new EmbedBuilder().setTitle('Replacing blocks...').setDescription(`Preparing to restart by placing blocks and waiting 30 seconds`)]})
+		await interaction.reply({
+			embeds: [
+				new EmbedBuilder().setTitle('Replacing blocks...').setDescription(`Preparing to restart by placing blocks and waiting 30 seconds`)
+			]
+		});
 
 		await Promise.all(
-			
 			farmsData.farms.map(async (farm, index) => {
 				const location = {
 					x: farm.x,
@@ -53,11 +56,11 @@ class UserCommand extends Command {
 				};
 				console.log(location);
 
-				if ((location.dimension === 'nether')) {
+				if (location.dimension === 'nether') {
 					var command = `execute in minecraft:the_nether run setblock ${location.x} ${location.y} ${location.z} redstone_block`;
-				} else if ((location.dimension === 'end')) {
+				} else if (location.dimension === 'end') {
 					var command = `execute in minecraft:the_end run setblock ${location.x} ${location.y} ${location.z} redstone_block`;
-				} else if ((location.dimension === 'overworld')) {
+				} else if (location.dimension === 'overworld') {
 					var command = `execute in minecraft:overworld run setblock ${location.x} ${location.y} ${location.z} redstone_block`;
 				} else {
 					await interaction.editReply(`Invalid dimension in farm ${index}`);
@@ -65,18 +68,14 @@ class UserCommand extends Command {
 
 				await client.sendServerCommand(server_id, command);
 			})
-	)
-		
-		
+		);
 
-		setTimeout(function() {
-			client.restartServer(creative_server_id)
-			.then(result => {
+		setTimeout(function () {
+			client.restartServer(creative_server_id).then((result) => {
 				const embed = new EmbedBuilder().setTitle('Server Restarted').setDescription(`Server is restarting`);
 				interaction.editReply({ embeds: [embed] });
-				
-		})
-		}, 30000)
+			});
+		}, 30000);
 	}
 }
 
