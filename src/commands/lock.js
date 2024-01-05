@@ -32,6 +32,7 @@ class UserCommand extends Command {
 	 * @param {Command.ChatInputCommandInteraction} interaction
 	 */
 	async chatInputRun(interaction) {
+		if (interaction.inGuild()) {
 		const embed = new EmbedBuilder()
 			.setTitle('Creative Server Locked')
 			.setDescription(`Creative Server has been locked by <@${interaction.user.id}>, it will no longer be overwritten`);
@@ -99,8 +100,12 @@ class UserCommand extends Command {
 		fs.writeFileSync(path.resolve(__dirname, '../lock.json'), JSON.stringify(lock));
 
 		await interaction.reply({ embeds: [embed] });
-	}
+	} else {
+			interaction.reply("This is a guild-only command");
+		}
 }
+}
+
 
 module.exports = {
 	UserCommand

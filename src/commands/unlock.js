@@ -32,6 +32,7 @@ class UserCommand extends Command {
 	 * @param {Command.ChatInputCommandInteraction} interaction
 	 */
 	async chatInputRun(interaction) {
+		if (interaction.inGuild()) {
 		const data = JSON.stringify({
 			name: 'Creative Reset',
 			is_active: true,
@@ -92,8 +93,12 @@ class UserCommand extends Command {
 				.setColor('#FF91AF');
 
 			await interaction.reply({ embeds: [embed] });
+		} 
 		}
-	}
+			else {
+				await interaction.reply("This is a guild-only command");
+			}
+}
 }
 
 module.exports = {
