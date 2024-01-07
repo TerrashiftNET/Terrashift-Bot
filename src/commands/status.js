@@ -36,7 +36,7 @@ class UserCommand extends Command {
 		if (lock.length === 0) {
 			embed = new EmbedBuilder()
 				.setTitle('The Creative Server is currently unlocked and is due to be overwritten at')
-				.setDescription(`11 pm GMT`)
+				.setDescription(`12am GMT`)
 				.setColor('#FF91AF');
 		} else {
 			embed = new EmbedBuilder()
