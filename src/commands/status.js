@@ -30,15 +30,16 @@ class UserCommand extends Command {
 	 * @param {Command.ChatInputCommandInteraction} interaction
 	 */
 	async chatInputRun(interaction) {
+		var embed;
 		const lock = JSON.parse(fs.readFileSync(path.join(__dirname, '../lock.json'), 'utf8'));
 		console.log(lock.length)
 		if (lock.length === 0) {
-			const embed = new EmbedBuilder()
+			embed = new EmbedBuilder()
 				.setTitle('The Creative Server is currently unlocked and is due to be overwritten at')
 				.setDescription(`11 pm GMT`)
 				.setColor('#FF91AF');
 		} else {
-			const embed = new EmbedBuilder()
+			embed = new EmbedBuilder()
 				.setTitle('The Creative Server is currently locked by:')
 				.setDescription(`<@${lock.map((obj) => Object.keys(obj)[0]).join('>\n <@')}>`)
 				.setColor('#FF91AF');
