@@ -42,8 +42,8 @@ class UserCommand extends Command {
 				.setTitle('The Creative Server is currently locked by:')
 				.setDescription(`<@${lock.map((obj) => Object.keys(obj)[0]).join('>\n <@')}>`)
 				.setColor('#FF91AF');
-			await interaction.reply({ embeds: [embed] });
 		}
+		await interaction.reply({ embeds: [embed] });
 	}
 }
 
