@@ -1,4 +1,6 @@
-<img src="icon.webp" width="100px" height="100px" position="center" />
+<p align="center">
+  <img src="icon.webp" width="100px" height="100px" />
+</p>
 
 ### Prerequisite
 
