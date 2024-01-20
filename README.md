@@ -1,3 +1,5 @@
+<img src="logo.webp" />
+
 ### Prerequisite
 
 ```sh
