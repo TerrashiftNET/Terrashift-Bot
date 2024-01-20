@@ -1,4 +1,4 @@
-<img src="logo.webp" />
+<img src="icon.webp" />
 
 ### Prerequisite
 
