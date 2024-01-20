@@ -1,6 +1,10 @@
 <p align="center">
   <img src="icon.webp" width="100px" height="100px" />
+  <h1>Terrashift</h1>
+  Utility bot for the Terrashift Discord Server
 </p>
+
+
 
 ### Prerequisite
 
