@@ -10,7 +10,7 @@
     "routes": ""
   },
   "customFileTemplates": {
-    "enabled": true,
-    "location": "templates"
+    "enabled": false,
+    "location": ""
   }
 }

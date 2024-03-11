@@ -1,18 +1,18 @@
 require('./lib/setup');
 const { LogLevel, SapphireClient } = require('@sapphire/framework');
-const { prefix, discord_token } = require('./config.json');
+const { prefix, discord_token, clientId, clientSecret } = require('./config.json');
 const { GatewayIntentBits, Partials } = require('discord.js');
 global.user = '';
 const fs = require('fs');
+const { OAuth2Scopes } = require('discord.js');
+const express = require('express');
+const app = express();
 
 const client = new SapphireClient({
-	defaultPrefix: prefix,
-	regexPrefix: /^(hey +)?bot[,! ]/i,
-	caseInsensitiveCommands: true,
 	logger: {
 		level: LogLevel.Debug
 	},
-	shards: 'auto',
+	// shards: 'auto',
 	intents: [
 		GatewayIntentBits.DirectMessageReactions,
 		GatewayIntentBits.DirectMessages,
@@ -26,7 +26,7 @@ const client = new SapphireClient({
 		GatewayIntentBits.MessageContent
 	],
 	partials: [Partials.Channel],
-	loadMessageCommandListeners: true
+	loadMessageCommandListeners: true,
 });
 
 const main = async () => {
