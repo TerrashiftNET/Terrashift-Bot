@@ -5,8 +5,6 @@ const { GatewayIntentBits, Partials } = require('discord.js');
 global.user = '';
 const fs = require('fs');
 const { OAuth2Scopes } = require('discord.js');
-const express = require('express');
-const app = express();
 
 const client = new SapphireClient({
 	logger: {
