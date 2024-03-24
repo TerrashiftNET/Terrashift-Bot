@@ -29,7 +29,7 @@ class UserEvent extends Listener {
 		var mcname = response.username;
 
 		// check if discord is undefined
-		if (!mcname) {
+		if (mcname === undefined) {
 			mcname = "Not Found"
 		}
 
