@@ -34,7 +34,7 @@ class UserCommand extends Command {
 								value: 'current'
 							},
 							{
-								name: 'season 2',
+								name: 'Season 2',
 								value: 'season2'
 							},
 							{
