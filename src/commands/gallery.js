@@ -65,6 +65,14 @@ class UserCommand extends Command {
 		console.log(imgurl);
 
 		const filename = path.basename(imgurl).split('?')[0];
+		const ext = path.basename(imgurl).split('.').pop();
+		if (!['png', 'jpg', 'jpeg'].includes(ext)) {
+			await interaction.reply({
+				content: `Only PNG and JPG images are supported!`,
+				ephemeral: true
+			});
+			return;
+		}
 		const filepath = path.join(__dirname, `../gallery/${season}/${filename}`);
 
 		const file = fs.createWriteStream(filepath);
