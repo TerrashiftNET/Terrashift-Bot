@@ -35,11 +35,11 @@ class UserCommand extends Command {
 							},
 							{
 								name: 'Season 2',
-								value: 'season2'
+								value: 's2'
 							},
 							{
 								name: 'Season 3',
-								value: 'season3'
+								value: 's2'
 							}
 						)
 						.setRequired(true)
