@@ -8,5 +8,6 @@
         "schedule_id": "",
         "api_url": "",
         "api_secret": "",
-        "admin_channel_id": ""
+        "admin_channel_id": "",
+        "curseforgeApiKey": ""
 }
