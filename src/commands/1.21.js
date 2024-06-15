@@ -29,6 +29,7 @@ class UserCommand extends Command {
 			builder //
 				.setName(this.name)
 				.setDescription(this.description)
+				.setDefaultMemberPermissions(PermissionFlagsBits.Administrator)
 		);
 	}
 
