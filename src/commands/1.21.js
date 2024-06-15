@@ -46,10 +46,8 @@ class UserCommand extends Command {
 					try {
 						const addon = await cf.get_mod(mod.id);
 						if (addon.latestFiles[0].gameVersions[0].includes('1.21')) {
-							console.log(`✅- Mod ${addon.name} has a 1.21 version`);
 							mod_status.push(`✅- Mod ${addon.name} has a 1.21 version`);
 						} else {
-							console.log(`❌- Mod ${addon.name} does not have a 1.21 version`);
 							mod_status.push(`❌-Mod ${addon.name} does not have a 1.21 version`);
 						}
 					} catch (err) {
@@ -59,10 +57,8 @@ class UserCommand extends Command {
 					try {
 						const data = await client.getProject(mod.id);
 						if (data.game_versions.includes('1.21')) {
-							console.log(`✅- Mod ${data.title} has a 1.21 version`);
 							mod_status.push(`✅- Mod ${data.title} has a 1.21 version`);
 						} else {
-							console.log(`❌- Mod ${data.title} does not have a 1.21 version`);
 							mod_status.push(`❌- Mod ${data.title} does not have a 1.21 version`);
 						}
 					} catch (err) {
