@@ -49,7 +49,7 @@ class UserCommand extends Command {
 						.setName('dimension')
 						.setDescription('The dimension of the marker')
 						.setRequired(true)
-						.addChoices({ name: 'Overworld', value: 'Overworld' }, { name: 'Nether', value: 'Nether' }, { name: 'End', value: 'End' })
+						.addChoices({ name: 'Overworld', value: 'overworld' }, { name: 'Nether', value: 'nether' }, { name: 'End', value: 'end' })
 				)
 				.addStringOption((option) => option.setName('name').setDescription('The name of the marker').setRequired(true))
 		);
@@ -77,7 +77,7 @@ class UserCommand extends Command {
 		// generate a new id
 		const random_id = last_id + 1;
 
-		var step_1 = `bmarker create poi ${dimension.toLowerCase()} 1`;
+		var step_1 = `bmarker create poi ${dimension} 1`;
 
 		var step_2 = `bmarker-setup id ${random_id}`;
 
