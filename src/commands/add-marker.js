@@ -77,7 +77,7 @@ class UserCommand extends Command {
 		// generate a new id
 		const random_id = last_id + 1;
 
-		var step_1 = `bmarker create poi ${dimension} 1`;
+		var step_1 = `bmarker create poi ${dimension.toLowerCase()} 1`;
 
 		var step_2 = `bmarker-setup id ${random_id}`;
 
