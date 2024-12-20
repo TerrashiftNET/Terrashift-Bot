@@ -1,12 +1,12 @@
 require('./lib/setup');
-// const { LogLevel, SapphireClient } = require('@sapphire/framework');
-// const { GatewayIntentBits, Partials } = require('discord.js');
-// const { prefix, discord_token, clientId, clientSecret } = require('./config.json');
-// const fs = require('fs');
-import fs from 'fs';
-import { discord_token } from './config.json';
-import { SapphireClient, LogLevel } from '@sapphire/framework';
-import { GatewayIntentBits, Partials } from 'discord.js';
+const { LogLevel, SapphireClient } = require('@sapphire/framework');
+const { GatewayIntentBits, Partials } = require('discord.js');
+const { prefix, discord_token, clientId, clientSecret } = require('./config.json');
+const fs = require('fs');
+// import fs from 'fs';
+// import { discord_token } from './config.json';
+// import { SapphireClient, LogLevel } from '@sapphire/framework';
+// import { GatewayIntentBits, Partials } from 'discord.js';
 
 global.user = '';
 const client = new SapphireClient({
