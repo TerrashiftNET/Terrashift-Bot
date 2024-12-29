@@ -1,7 +1,8 @@
 const { Command } = require('@sapphire/framework');
 const fetch = require('node-fetch');
-const { PermissionFlagsBits, EmbedBuilder } = require('discord.js');
+const { PermissionFlagsBits, EmbedBuilder, time } = require('discord.js');
 const { api_secret } = require('../config.json');
+const timestamp = require('unix-timestamp');
 
 class UserCommand extends Command {
 	/**
@@ -48,6 +49,7 @@ class UserCommand extends Command {
 
 		// parse the response as json
 		const data = await response.json();
+		console.log(data);
 
 		// if the user does not exist, return an error
 		if (!data) {
@@ -65,7 +67,11 @@ class UserCommand extends Command {
 				{ name: 'Email', value: data.email, inline: true },
 				{ name: 'Reason', value: data.reason, inline: true },
 				{ name: 'Looking for', value: data.looking_for, inline: true }
-			]);
+			])
+			.setFooter({
+				text: new Date(Number(data.timestamp)).toUTCString(),
+				icon: interaction.guild.iconURL
+			});
 
 		// reply with the embed
 		await interaction.reply({ embeds: [embed] });
