@@ -1,4 +1,4 @@
-const { EmbedBuilder } = require('@discordjs/builders');
+const { EmbedBuilder } = require('discord.js');
 const { Command } = require('@sapphire/framework');
 const { PermissionFlagsBits } = require('discord.js');
 const fs = require('fs');
