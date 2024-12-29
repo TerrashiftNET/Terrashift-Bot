@@ -1,7 +1,7 @@
 {
   "name": "terrashift-bot",
   "version": "1.0.0",
-  "description": "<p align=\"center\">\r   <img src=\"icon.webp\" width=\"100px\" height=\"100px\" />\r   <h1 align=\"center\">Terrashift Bot</h1>\r   <p align=\"center\">Utility bot for the Terrashift Discord Server</p>\r </p>",
+  "description": "Utility bot for the Terrashift Discord Server",
   "main": "src/index.js",
   "scripts": {
     "sapphire": "sapphire",
