@@ -44,6 +44,10 @@ importers:
       nodeactyl:
         specifier: ^3.3.0
         version: 3.3.0
+    devDependencies:
+      prettier:
+        specifier: ^3.4.2
+        version: 3.4.2
 
 packages:
 
@@ -234,6 +238,11 @@ packages:
 
   nodeactyl@3.3.0:
     resolution: {integrity: sha512-rORdecNntORRsbObaBCIuZaiex+soENNVve5NtBLAUiHaEpVpX741YgvvUc0FrBzJeFDw9v+X9ZAF5lj1DOWog==}
+
+  prettier@3.4.2:
+    resolution: {integrity: sha512-e9MewbtFo+Fevyuxn/4rrcDAaq0IYxPGLvObpQjiZBMAzB9IGmzlnG9RZy3FFas+eBMu2vA0CszMeduow5dIuQ==}
+    engines: {node: '>=14'}
+    hasBin: true
 
   ts-mixer@6.0.4:
     resolution: {integrity: sha512-ufKpbmrugz5Aou4wcr5Wc1UUFWOLhq+Fm6qa6P0w0K5Qw2yhaUoiWszhCVuNQyNwrlGiscHOmqYoAox1PtvgjA==}
@@ -474,6 +483,8 @@ snapshots:
       axios: 0.22.0
     transitivePeerDependencies:
       - debug
+
+  prettier@3.4.2: {}
 
   ts-mixer@6.0.4: {}
 

@@ -28,9 +28,9 @@ class UserCommand extends Command {
           option
             .setName("name")
             .setDescription("The username to check")
-            .setRequired(true)
+            .setRequired(true),
         )
-        .setDefaultMemberPermissions(PermissionFlagsBits.Administrator)
+        .setDefaultMemberPermissions(PermissionFlagsBits.Administrator),
     );
   }
 
@@ -50,7 +50,7 @@ class UserCommand extends Command {
           "X-Api-Key": api_secret,
         },
       },
-      FetchResultTypes.JSON
+      FetchResultTypes.JSON,
     );
 
     if (!data) {
