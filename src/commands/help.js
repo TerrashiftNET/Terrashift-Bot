@@ -33,10 +33,18 @@ class UserCommand extends Command {
       .setTitle("Command List")
       .setDescription(`A list of commands`)
       .addFields(
-        { name: "unlock", value: "Unlocks the Creative Server" },
+        { name: "unlock", value: "Unlock the Creative Server" },
+        { name: "lock", value: "Lock the Creative Server" },
         { name: "status", value: "Find out who locked the creative server" },
-        { name: "lock", value: "Locks the Creative Server" },
-        { name: "add-marker", value: "Add a marker to the live map" },
+        {
+          name: "gallery",
+          value:
+            "Upload an image to be displayed on the terrashift.net gallery",
+        },
+        {
+          name: "creative-op",
+          value: "Make yourself an operator on the creative server",
+        },
       )
       .setColor("#FF91AF");
     await interaction.reply({ embeds: [embed] });
