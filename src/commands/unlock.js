@@ -117,12 +117,10 @@ class UserCommand extends Command {
         const embed = new EmbedBuilder()
           .setTitle("Creative Server is still locked by:")
           .setDescription(
-            `<@${lock.users.map((obj) => Object.keys(obj)[0]).join(">\n <@")}>`,
+            `<@${lock.users.map((obj) => Object.keys(obj)[0]).join(">\n <@")}>` +
+              ` \n \nCreative server has been locked since: <t:${Math.floor(lock.first_locked / 1000)}:f>`,
           )
-          .setColor("#FF91AF")
-          .setFooter({
-            text: `Creative server has been locked since: <t:${Math.floor(lock.first_locked / 1000)}:f>`,
-          });
+          .setColor("#FF91AF");
 
         await interaction.reply({ embeds: [embed] });
       }

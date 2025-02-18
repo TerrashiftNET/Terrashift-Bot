@@ -8,6 +8,7 @@ const {
 } = require("../config.json");
 const fs = require("fs");
 const path = require("path");
+const { json } = require("stream/consumers");
 
 class UserCommand extends Command {
   /**
@@ -38,14 +39,30 @@ class UserCommand extends Command {
    */
   async chatInputRun(interaction) {
     if (interaction.inGuild()) {
+      const member = interaction.user.id;
+      const lockPath = path.join(__dirname, "../lock.json");
+      // if lock.json doesn't exist, create it
+      if (!fs.existsSync(lockPath)) {
+        fs.writeFileSync(
+          lockPath,
+          JSON.stringify(
+            { users: [], first_locked: null, next_update: null },
+            null,
+            2,
+          ),
+        );
+      }
+
+      const lock = JSON.parse(fs.readFileSync(lockPath, "utf8"));
+
+      const first_locked =
+        lock.first_locked == null ? Date.now() : lock.first_locked;
       const embed = new EmbedBuilder()
         .setTitle("Creative Server Locked")
         .setDescription(
-          `Creative Server has been locked by <@${interaction.user.id}>, it will no longer be overwritten`,
-        )
-        .setFooter({
-          text: `Creative server has been locked since: <t:${Math.floor(lock.first_locked / 1000)}:f>`,
-        });
+          `Creative Server has been locked by <@${interaction.user.id}>, it will no longer be overwritten` +
+            ` \n \nCreative server has been locked since: <t:${Math.floor(first_locked / 1000)}:f>`,
+        );
 
       const data = JSON.stringify({
         name: "Creative Reset",
@@ -103,22 +120,6 @@ class UserCommand extends Command {
 
       req.write(data);
       req.end();
-
-      const member = interaction.user.id;
-      const lockPath = path.join(__dirname, "../lock.json");
-      // if lock.json doesn't exist, create it
-      if (!fs.existsSync(lockPath)) {
-        fs.writeFileSync(
-          lockPath,
-          JSON.stringify(
-            { users: [], first_locked: null, next_update: null },
-            null,
-            2,
-          ),
-        );
-      }
-
-      const lock = JSON.parse(fs.readFileSync(lockPath, "utf8"));
 
       // if the user is already in lock.json, return
       if (lock.users.some((user) => Object.keys(user)[0] == member)) {
