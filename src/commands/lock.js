@@ -42,7 +42,10 @@ class UserCommand extends Command {
         .setTitle("Creative Server Locked")
         .setDescription(
           `Creative Server has been locked by <@${interaction.user.id}>, it will no longer be overwritten`,
-        );
+        )
+        .setFooter({
+          text: `Creative server has been locked since: <t:${Math.floor(lock.first_locked / 1000)}:f>`,
+        });
 
       const data = JSON.stringify({
         name: "Creative Reset",
@@ -81,6 +84,17 @@ class UserCommand extends Command {
 
           res.on("end", () => {
             console.log("Body: ", JSON.parse(data));
+            const Data = JSON.parse(data);
+            const lock = JSON.parse(
+              fs.readFileSync(path.resolve(__dirname, "../lock.json"), "utf8"),
+            );
+            const date = new Date(Data.attributes.next_run_at);
+            const unixTimestamp = date.getTime();
+            lock.next_update = unixTimestamp;
+            fs.writeFileSync(
+              path.resolve(__dirname, "../lock.json"),
+              JSON.stringify(lock, null, 2),
+            );
           });
         })
         .on("error", (err) => {
@@ -91,16 +105,23 @@ class UserCommand extends Command {
       req.end();
 
       const member = interaction.user.id;
+      const lockPath = path.join(__dirname, "../lock.json");
       // if lock.json doesn't exist, create it
-      if (!fs.existsSync(path.join(__dirname, "../lock.json"))) {
-        fs.writeFileSync(path.join(__dirname, "../lock.json"), "[]");
+      if (!fs.existsSync(lockPath)) {
+        fs.writeFileSync(
+          lockPath,
+          JSON.stringify(
+            { users: [], first_locked: null, next_update: null },
+            null,
+            2,
+          ),
+        );
       }
 
+      const lock = JSON.parse(fs.readFileSync(lockPath, "utf8"));
+
       // if the user is already in lock.json, return
-      const lock = JSON.parse(
-        fs.readFileSync(path.resolve(__dirname, "../lock.json"), "utf8"),
-      );
-      if (lock.some((obj) => Object.keys(obj)[0] == member)) {
+      if (lock.users.some((user) => Object.keys(user)[0] == member)) {
         await interaction.reply({
           content: "You have already locked the creative server",
           ephemeral: true,
@@ -109,14 +130,16 @@ class UserCommand extends Command {
       }
 
       //append the user and the current unix timestamp to lock.json
-      const newLock = {
-        [member]: Date.now(),
-      };
-      lock.push(newLock);
-      fs.writeFileSync(
-        path.resolve(__dirname, "../lock.json"),
-        JSON.stringify(lock),
-      );
+      const newLock = { [member]: Date.now() };
+      lock.users.push(newLock); // Push to the array
+
+      if (lock.users.length === 1) {
+        if (lock.next_update <= Date.now()) {
+          lock.first_locked = Date.now();
+        }
+      }
+
+      fs.writeFileSync(lockPath, JSON.stringify(lock, null, 2)); // Write back to the file
 
       await interaction.reply({ embeds: [embed] });
     } else {

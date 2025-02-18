@@ -34,20 +34,23 @@ class UserCommand extends Command {
     const lock = JSON.parse(
       fs.readFileSync(path.join(__dirname, "../lock.json"), "utf8"),
     );
-    console.log(lock.length);
-    if (lock.length === 0) {
+    console.log(lock.users.length);
+    if (lock.users.length === 0) {
       embed = new EmbedBuilder()
         .setTitle(
           "The Creative Server is currently unlocked and is due to be overwritten at",
         )
-        .setDescription(`12am GMT`)
+        .setDescription(`<t:${Math.floor(lock.next_update / 1000)}:f>`)
         .setColor("#FF91AF");
     } else {
       embed = new EmbedBuilder()
         .setTitle("The Creative Server is currently locked by:")
         .setDescription(
-          `<@${lock.map((obj) => Object.keys(obj)[0]).join(">\n <@")}>`,
+          `<@${lock.users.map((obj) => Object.keys(obj)[0]).join(">\n <@")}>`,
         )
+        .setFooter({
+          text: `Creative server has been locked since: <t:${Math.floor(lock.first_locked / 1000)}:f>`,
+        })
         .setColor("#FF91AF");
     }
     await interaction.reply({ embeds: [embed] });

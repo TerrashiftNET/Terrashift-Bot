@@ -44,7 +44,7 @@ class UserCommand extends Command {
         hour: "0",
         day_of_month: "*",
         day_of_week: "*",
-        month: "*/12",
+        month: "*",
       });
 
       const options = {
@@ -63,22 +63,23 @@ class UserCommand extends Command {
       };
 
       const member = interaction.user.id;
-      // read lock.json and remove member from it
-
-      // [{ '297333355819696130': 1692829214422 }, { '297333355819696130': 1692829223321 }];
-
       const lock = JSON.parse(
         fs.readFileSync(path.resolve(__dirname, "../lock.json"), "utf8"),
       );
-      const index = lock.findIndex((obj) => Object.keys(obj)[0] == member);
-      lock.splice(index, 1);
+      const index = lock.users.findIndex(
+        (obj) => Object.keys(obj)[0] == member,
+      );
+      lock.users.splice(index, 1);
+      if (lock.users.length == 0) {
+        lock.first_locked = null;
+      }
 
       fs.writeFileSync(
         path.resolve(__dirname, "../lock.json"),
-        JSON.stringify(lock),
+        JSON.stringify(lock, null, 2),
       );
 
-      if (lock.length == 0) {
+      if (lock.users.length == 0) {
         const embed = new EmbedBuilder()
           .setTitle("Creative Server Unlocked")
           .setDescription(
@@ -94,6 +95,17 @@ class UserCommand extends Command {
 
           res.on("end", () => {
             console.log(JSON.parse(data));
+            const Data = JSON.parse(data);
+            const lock = JSON.parse(
+              fs.readFileSync(path.resolve(__dirname, "../lock.json"), "utf8"),
+            );
+            const date = new Date(Data.attributes.next_run_at);
+            const unixTimestamp = date.getTime();
+            lock.next_update = unixTimestamp;
+            fs.writeFileSync(
+              path.resolve(__dirname, "../lock.json"),
+              JSON.stringify(lock, null, 2),
+            );
           });
         });
 
@@ -105,9 +117,12 @@ class UserCommand extends Command {
         const embed = new EmbedBuilder()
           .setTitle("Creative Server is still locked by:")
           .setDescription(
-            `<@${lock.map((obj) => Object.keys(obj)[0]).join(">\n <@")}>`,
+            `<@${lock.users.map((obj) => Object.keys(obj)[0]).join(">\n <@")}>`,
           )
-          .setColor("#FF91AF");
+          .setColor("#FF91AF")
+          .setFooter({
+            text: `Creative server has been locked since: <t:${Math.floor(lock.first_locked / 1000)}:f>`,
+          });
 
         await interaction.reply({ embeds: [embed] });
       }
