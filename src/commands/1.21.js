@@ -17,7 +17,7 @@ class UserCommand extends Command {
 		super(context, {
 			// Any Command options you want here
 			name: 'update-check',
-			description: 'List mods for 1.21.7'
+			description: 'List mods for 1.21.9'
 		});
 	}
 
@@ -46,10 +46,10 @@ class UserCommand extends Command {
 				if (mod.source === 'curseforge') {
 					try {
 						const addon = await cf.get_mod(mod.id);
-						if (addon.latestFiles[0].gameVersions[0].includes('1.21.7')) {
-							mod_status.push(`✅- Mod ${addon.name} has a 1.21.7 version`);
+						if (addon.latestFiles[0].gameVersions[0].includes('1.21.9')) {
+							mod_status.push(`✅- Mod ${addon.name} has a 1.21.9 version`);
 						} else {
-							mod_status.push(`❌-Mod ${addon.name} does not have a 1.21.7 version`);
+							mod_status.push(`❌-Mod ${addon.name} does not have a 1.21.9 version`);
 						}
 					} catch (err) {
 						console.error(err);
@@ -57,10 +57,10 @@ class UserCommand extends Command {
 				} else if (mod.source === 'modrinth') {
 					try {
 						const data = await client.getProject(mod.id);
-						if (data.game_versions.includes('1.21.7')) {
-							mod_status.push(`✅- Mod ${data.title} has a 1.21.7 version`);
+						if (data.game_versions.includes('1.21.9')) {
+							mod_status.push(`✅- Mod ${data.title} has a 1.21.9 version`);
 						} else {
-							mod_status.push(`❌- Mod ${data.title} does not have a 1.21.7 version`);
+							mod_status.push(`❌- Mod ${data.title} does not have a 1.21.9 version`);
 						}
 					} catch (err) {
 						console.error(err);
@@ -76,7 +76,7 @@ class UserCommand extends Command {
 		mod_status.sort();
 
 		// Create an embed with the mod status messages
-		const embed = new EmbedBuilder().setTitle('Mods for 1.21.7').setDescription(`${mod_status.join('\n')}`);
+		const embed = new EmbedBuilder().setTitle('Mods for 1.21.9').setDescription(`${mod_status.join('\n')}`);
 
 		// Reply with the embed
 		await interaction.reply({ embeds: [embed] });
