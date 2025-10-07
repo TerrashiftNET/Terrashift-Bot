@@ -33,7 +33,9 @@ class UserCommand extends Command {
         .setDescription(this.description)
         .addStringOption((option) =>
           option //
-            .setName("version"),
+            .setName("version")
+            .setDescription("The version to check")
+            .setRequired(true),
         )
         .setDefaultMemberPermissions(PermissionFlagsBits.Administrator),
     );
