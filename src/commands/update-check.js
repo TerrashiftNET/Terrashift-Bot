@@ -56,10 +56,10 @@ class UserCommand extends Command {
           try {
             const addon = await cf.get_mod(mod.id);
             if (addon.latestFiles[0].gameVersions[0].includes(version)) {
-              mod_status.push(`✅- Mod ${addon.name} has a ${version} version`);
+              mod_status.push(`✅ - Mod ${addon.name} has a ${version} version`);
             } else {
               mod_status.push(
-                `❌-Mod ${addon.name} does not have a ${version} version`,
+                `❌ - Mod ${addon.name} does not have a ${version} version`,
               );
             }
           } catch (err) {
@@ -69,10 +69,10 @@ class UserCommand extends Command {
           try {
             const data = await client.getProject(mod.id);
             if (data.game_versions.includes(version)) {
-              mod_status.push(`✅- Mod ${data.title} has a ${version} version`);
+              mod_status.push(`✅ - Mod ${data.title} has a ${version} version`);
             } else {
               mod_status.push(
-                `❌- Mod ${data.title} does not have a ${version} version`,
+                `❌ - Mod ${data.title} does not have a ${version} version`,
               );
             }
           } catch (err) {
