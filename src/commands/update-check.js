@@ -19,11 +19,7 @@ class UserCommand extends Command {
     super(context, {
       // Any Command options you want here
       name: "update-check",
-      description: "List mods for the specified version".addStringOption(
-        (option) =>
-          option //
-            .setName("version"),
-      ),
+      description: "List mods for the specified version",
     });
   }
 
@@ -35,6 +31,10 @@ class UserCommand extends Command {
       builder //
         .setName(this.name)
         .setDescription(this.description)
+        .addStringOption((option) =>
+          option //
+            .setName("version"),
+        )
         .setDefaultMemberPermissions(PermissionFlagsBits.Administrator),
     );
   }
