@@ -4,6 +4,7 @@ const { api_secret } = require("../config.json");
 const { fetch, FetchResultTypes } = require("@sapphire/fetch");
 const { FetchMethods } = require("@sapphire/fetch");
 const { Embed } = require("discord.js");
+const https = require("https");
 
 class UserCommand extends Command {
   /**
