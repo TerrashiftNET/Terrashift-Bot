@@ -74,7 +74,7 @@ class UserCommand extends Command {
       );
 
     const options = {
-      hostname: "localhost:1337",
+      hostname: "http://localhost:1337",
       path: "/api",
       method: "POST",
       headers: {
@@ -96,6 +96,7 @@ class UserCommand extends Command {
         res.on("end", () => {
           console.log("Response: ", JSON.parse(data));
           const Data = JSON.parse(data);
+          console.log(Data);
         });
       })
       .on("error", (err) => {
