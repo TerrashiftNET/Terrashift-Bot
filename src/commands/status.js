@@ -36,11 +36,13 @@ class UserCommand extends Command {
     );
     console.log(lock.users.length);
     if (lock.users.length === 0) {
+      var d = new Date();
+      d.setUTCHours(23, 55, 0, 0);
       embed = new EmbedBuilder()
         .setTitle(
           "The Creative Server is currently unlocked and is due to be overwritten at",
         )
-        .setDescription(`<t:${Math.floor(lock.next_update / 1000)}:f>`)
+        .setDescription(`<t:${Math.floor(d.getTime() / 1000)}:f>`)
         .setColor("#FF91AF");
     } else {
       embed = new EmbedBuilder()
