@@ -43,7 +43,6 @@ class UserCommand extends Command {
           "The Creative Server is currently unlocked and is due to be overwritten at",
         )
         .setDescription(`<t:${Math.floor(d.getTime() / 1000)}:f>`)
-        .setColor("#FF91AF");
     } else {
       embed = new EmbedBuilder()
         .setTitle("The Creative Server is currently locked by:")
@@ -51,7 +50,6 @@ class UserCommand extends Command {
           `<@${lock.users.map((obj) => Object.keys(obj)[0]).join(">\n <@")}>` +
             ` \n \nCreative server has been locked since: <t:${Math.floor(lock.first_locked / 1000)}:f>`,
         )
-        .setColor("#FF91AF");
     }
     await interaction.reply({ embeds: [embed] });
   }
