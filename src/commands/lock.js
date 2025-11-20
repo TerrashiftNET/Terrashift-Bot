@@ -53,9 +53,12 @@ class UserCommand extends Command {
       }
 
       const lock = JSON.parse(fs.readFileSync(lockPath, "utf8"));
-
-      const first_locked =
-        lock.first_locked == null ? Date.now() : lock.first_locked;
+  
+      if(lock.first_locked == null || lock.users.length == 0)
+      {
+        lock.first_locked == Date.now()
+      }
+      
       const embed = new EmbedBuilder()
         .setTitle("Creative Server Locked")
         .setDescription(
