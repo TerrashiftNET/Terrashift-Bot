@@ -57,13 +57,13 @@ class UserCommand extends Command {
       if(lock.first_locked == null || lock.users.length == 0)
       {
         lock.first_locked == Date.now()
-      }
+      }   
       
       const embed = new EmbedBuilder()
         .setTitle("Creative Server Locked")
         .setDescription(
           `Creative Server has been locked by <@${interaction.user.id}>, it will no longer be overwritten` +
-            ` \n \nCreative server has been locked since: <t:${Math.floor(first_locked / 1000)}:f>`,
+            ` \n \nCreative server has been locked since: <t:${Math.floor(lock.first_locked / 1000)}:f>`,
         );
 
       const data = JSON.stringify({
