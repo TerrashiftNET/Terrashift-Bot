@@ -48,7 +48,7 @@ class UserCommand extends Command {
 
     await client.sendServerCommand(server_id, command);
 
-    await interaction.reply({ embeds: [embed] });
+    await interaction.reply({ embeds: [embed], ephemeral: true });
   }
 }
 
