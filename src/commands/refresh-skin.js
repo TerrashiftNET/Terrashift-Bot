@@ -42,7 +42,9 @@ class UserCommand extends Command {
 
     const embed = new EmbedBuilder()
       .setTitle(`Skin cache cleared`)
-      .setDescription(`Skin cache for ${username} cleared. Your skin should now be refreshed.`);
+      .setDescription(
+        `Skin cache for ${username} cleared. Your skin should now be refreshed.`,
+      );
 
     var command = `pfc clean ${username}`;
 

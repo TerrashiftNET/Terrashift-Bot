@@ -42,14 +42,14 @@ class UserCommand extends Command {
         .setTitle(
           "The Creative Server is currently unlocked and is due to be overwritten at",
         )
-        .setDescription(`<t:${Math.floor(d.getTime() / 1000)}:f>`)
+        .setDescription(`<t:${Math.floor(d.getTime() / 1000)}:f>`);
     } else {
       embed = new EmbedBuilder()
         .setTitle("The Creative Server is currently locked by:")
         .setDescription(
           `<@${lock.users.map((obj) => Object.keys(obj)[0]).join(">\n <@")}>` +
             ` \n \nCreative server has been locked since: <t:${Math.floor(lock.first_locked / 1000)}:f>`,
-        )
+        );
     }
     await interaction.reply({ embeds: [embed] });
   }
