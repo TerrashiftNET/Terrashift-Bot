@@ -42,7 +42,8 @@ class UserCommand extends Command {
 
     const embed = new EmbedBuilder()
       .setTitle(`User Op'd`)
-      .setDescription(`${username}`);
+      .setDescription(`${username}`)
+      .setColor("#55ddb2");
 
     var command = `op ${username}`;
 

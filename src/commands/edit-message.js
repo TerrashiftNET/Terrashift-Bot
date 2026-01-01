@@ -70,7 +70,8 @@ class EditMessageCommand extends Command {
           { name: "Old Content", value: oldContent },
           { name: "New Content", value: newContent },
         ])
-        .setTimestamp(new Date());
+        .setTimestamp(new Date())
+        .setColor("#55ddb2");
 
       await interaction.editReply({
         content: "The Message has been Edited.",

@@ -46,7 +46,7 @@ class UserCommand extends Command {
           value: "Make yourself an operator on the creative server",
         },
       )
-      .setColor("#FF91AF");
+      .setColor("#55ddb2");
     await interaction.reply({ embeds: [embed] });
   }
 }

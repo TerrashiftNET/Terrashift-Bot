@@ -71,8 +71,9 @@ class UserCommand extends Command {
       .setTitle("Minigame Server Created")
       .setDescription(
         `${interaction.user.username} created a minigame server for ${minigame}`,
-      );
-
+      )
+      .setColor("#55ddb2");
+    
     const options = {
       hostname: "http://localhost:1337",
       path: "/api",

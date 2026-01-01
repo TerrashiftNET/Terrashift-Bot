@@ -44,7 +44,8 @@ class UserCommand extends Command {
       .setTitle(`Skin cache cleared`)
       .setDescription(
         `Skin cache for ${username} cleared. Your skin should now be refreshed.`,
-      );
+    )
+    .setColor("#55ddb2");
 
     var command = `pfc clean ${username}`;
 

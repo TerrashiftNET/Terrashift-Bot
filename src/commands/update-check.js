@@ -98,7 +98,8 @@ class UserCommand extends Command {
     // Create an embed with the mod status messages
     const embed = new EmbedBuilder()
       .setTitle(`Mods for ${version}`)
-      .setDescription(`${mod_status.join("\n")}`);
+      .setDescription(`${mod_status.join("\n")}`)
+      .setColor("#55ddb2");
 
     // Reply with the embed
     await interaction.reply({ embeds: [embed] });

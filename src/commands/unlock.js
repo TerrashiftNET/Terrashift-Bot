@@ -84,7 +84,8 @@ class UserCommand extends Command {
           .setTitle("Creative Server Unlocked")
           .setDescription(
             `Creative Server has been unlocked by <@${interaction.user.id}>, it can now be overwritten`,
-          );
+          )
+          .setColor("#55ddb2");
 
         const req = https.request(options, (res) => {
           let data = "";
@@ -120,7 +121,7 @@ class UserCommand extends Command {
             `<@${lock.users.map((obj) => Object.keys(obj)[0]).join(">\n <@")}>` +
               ` \n \nCreative server has been locked since: <t:${Math.floor(lock.first_locked / 1000)}:f>`,
           )
-          .setColor("#FF91AF");
+          .setColor("#55ddb2");
 
         await interaction.reply({ embeds: [embed] });
       }

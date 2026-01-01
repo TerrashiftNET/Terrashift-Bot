@@ -85,7 +85,8 @@ class UserCommand extends Command {
       .setFooter({
         text: new Date(Number(data.timestamp)).toUTCString(),
         icon: interaction.guild.iconURL,
-      });
+      })
+      .setColor("#55ddb2");
 
     // reply with the embed
     await interaction.reply({ embeds: [embed] });

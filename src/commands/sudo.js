@@ -65,7 +65,8 @@ class UserCommand extends Command {
         name: "Content",
         value: message.replace(/\\n/g, "\n"),
         inline: true,
-      });
+      })
+      .setColor("#55ddb2");
 
     await interaction.reply({ embeds: [Embed] });
   }

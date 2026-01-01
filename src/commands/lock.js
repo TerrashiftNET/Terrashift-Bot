@@ -63,7 +63,8 @@ class UserCommand extends Command {
         .setDescription(
           `Creative Server has been locked by <@${interaction.user.id}>, it will no longer be overwritten` +
             ` \n \nCreative server has been locked since: <t:${Math.floor(lock.first_locked / 1000)}:f>`,
-        );
+      )
+      .setColor("#55ddb2");
 
       const data = JSON.stringify({
         name: "Creative Reset",
