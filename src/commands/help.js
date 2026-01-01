@@ -51,6 +51,19 @@ class UserCommand extends Command {
       { name: "status", value: "Find out who locked the creative server" },
     ))
 
+    if(interaction.member.roles.cache.has("297333355819696130")) {
+      paginatedMessage.addPageEmbed((embed) => embed.setColor("#55ddb2").setTitle("Command List").setDescription(`A list of commands`).addFields(
+        { name: "update-check", value: "List mods for the specified version" },
+        { name: "sudo", value: "Send a message as the bot" },
+        { name: "edit-message", value: "Edit a message sent by the bot" },
+      ))
+      paginatedMessage.addPageEmbed((embed) => embed.setColor("#55ddb2").setTitle("Command List").setDescription(`A list of commands`).addFields(
+        { name: "whitelist", value: "Whitelist a user on the server" },
+        { name: "create-minigame", value: "Rebuild the minigame server with the specified minigame" },
+        { name: "check-app", value: "Fetch details about a users application" },
+      ))
+    }
+
     await paginatedMessage.run(interaction)
   }
 } 
