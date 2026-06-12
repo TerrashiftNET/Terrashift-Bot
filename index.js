@@ -1,0 +1,82 @@
+const { Client, GatewayIntentBits, Partials, PollLayoutType } = require("discord.js");
+const cron = require("node-cron");
+const fs = require("fs");
+const path = require("path");
+const config = require("./config.json");
+const client = new Client({
+  intents: [
+    GatewayIntentBits.Guilds,
+    GatewayIntentBits.GuildMessages,
+    GatewayIntentBits.GuildMembers
+  ],
+  partials: [Partials.Channel]
+});
+client.once("ready", () => {
+  console.log(`Logged in as ${client.user.tag}!`);
+
+  cron.schedule("0 0 * * *", async () => {
+    try {
+      console.log("Running Wordle Poll job...");
+
+      const guild = await client.guilds.fetch(config.guildId);
+      if (!guild) {
+        console.error("Guild not found");
+        return;
+      }
+
+      const channel = await guild.channels.fetch(config.pollChannelId);
+      if (!channel) {
+        console.error("Poll channel not found. Please set a valid pollChannelId in config.json");
+        return;
+      }
+
+      await guild.members.fetch();
+      const role = await guild.roles.fetch(config.wordleRoleId);
+      if (!role) {
+        console.error("Wordle role not found. Please set a valid wordleRoleId in config.json");
+        return;
+      }
+      const membersWithRole = role.members;
+      if (membersWithRole.size === 0) {
+        console.log("No members found with the Wordle role.");
+        return;
+      }
+      const randomMember = membersWithRole.random();
+
+      const usernameMapPath = path.join(__dirname, "usernameMap.json");
+      let usernameMap = {};
+
+      try {
+        const mapData = fs.readFileSync(usernameMapPath, "utf-8");
+        usernameMap = JSON.parse(mapData);
+      } catch (err) {
+        console.error("Error reading usernameMap.json", err);
+      }
+      const mappedName = usernameMap[randomMember.id] || randomMember.displayName;
+      const timeFrame = randomMember.id === "730634082631024653" ? "today" : "tommorow";
+
+      await channel.send({
+        poll: {
+          question: { text: `Will ${mappedName} get the wordle ${timeFrame}?` },
+          answers: [
+            { text: "Yes(in 6)" },
+            { text: "Yes (5 or less)" },
+            { text: "No" }
+          ],
+          duration: 24,
+          allowMultiselect: false,
+          layoutType: PollLayoutType.Default
+        }
+      });
+      console.log(`Poll sent successfully for ${mappedName}`);
+    } catch (error) {
+      console.error("Error running Wordle Poll job:", error);
+    }
+  }, {
+    timezone: "Asia/Kuala_Lumpur"
+  });
+
+  console.log("Scheduled Wordle Poll job for 12:00 AM MYT daily.");
+});
+
+client.login(config.discord_token);
