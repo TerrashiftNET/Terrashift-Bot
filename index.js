@@ -55,7 +55,15 @@ client.once("ready", () => {
       const mappedName = usernameMap[randomMember.id] || randomMember.displayName;
       const timeFrame = randomMember.id === "730634082631024653" ? "today" : "tommorow";
 
-      await channel.send({
+      const pinnedMessages = await channel.messages.fetchPinned();
+
+      if (pinnedMessages.size > 0) {
+        await pinnedMessages.forEach(async (msg) => {
+          await msg.unpin();
+        });
+      }
+
+      const msg = await channel.send({
         poll: {
           question: { text: `Will ${mappedName} get the wordle ${timeFrame}?` },
           answers: [
@@ -68,6 +76,7 @@ client.once("ready", () => {
           layoutType: PollLayoutType.Default
         }
       });
+      await msg.pin();
       console.log(`Poll sent successfully for ${mappedName}`);
     } catch (error) {
       console.error("Error running Wordle Poll job:", error);
@@ -75,7 +84,6 @@ client.once("ready", () => {
   }, {
     timezone: "Asia/Kuala_Lumpur"
   });
-
   console.log("Scheduled Wordle Poll job for 12:00 AM MYT daily.");
 });
 
