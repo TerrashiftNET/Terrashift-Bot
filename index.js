@@ -71,7 +71,7 @@ client.once("ready", () => {
             { text: "Yes (5 or less)" },
             { text: "No" }
           ],
-          duration: 24,
+          duration: 8,
           allowMultiselect: false,
           layoutType: PollLayoutType.Default
         }
