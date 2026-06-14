@@ -67,9 +67,10 @@ client.once("ready", () => {
         poll: {
           question: { text: `Will ${mappedName} get the wordle ${timeFrame}?` },
           answers: [
-            { text: "Yes(in 6)" },
-            { text: "Yes (5 or less)" },
-            { text: "No" }
+            { text: "Yes (in 6)" },
+            { text: "Yes (in 4-5)" },
+            { text: "Yes (in 1-3)" },
+            { text: "No (couldn't be Tyler)" }
           ],
           duration: 8,
           allowMultiselect: false,
