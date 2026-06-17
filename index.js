@@ -69,7 +69,8 @@ client.once("ready", () => {
           answers: [
             { text: "Yes (in 6)" },
             { text: "Yes (in 4-5)" },
-            { text: "Yes (in 1-3)" },
+            { text: "Yes (in 2-3)" },
+            { text: "Yes (in 1)" },
             { text: "No (couldn't be Tyler)" }
           ],
           duration: 8,
