@@ -53,7 +53,7 @@ client.once("ready", () => {
         console.error("Error reading usernameMap.json", err);
       }
       const mappedName = usernameMap[randomMember.id] || randomMember.displayName;
-      const timeFrame = randomMember.id === "730634082631024653" ? "today" : "tommorow";
+      const timeFrame = randomMember.id === "730634082631024653" ? "today" : "tomorrow";
 
       const pinnedMessages = await channel.messages.fetchPinned();
 
