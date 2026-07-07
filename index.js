@@ -65,7 +65,7 @@ client.once("ready", () => {
 
       const msg = await channel.send({
         poll: {
-          question: { text: `Will ${mappedName} get the wordlle ${timeFrame}?` },
+          question: { text: `Willl ${mappedName} get the wordle ${timeFrame}?` },
           answers: [
             { text: "Yes (in 6)" },
             { text: "Yes (in 4-5)" },
